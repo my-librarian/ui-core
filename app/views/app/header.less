@@ -1,0 +1,14 @@
+@import "../../styles/less/variables";
+@import "../../styles/less/mixins";
+
+app-header:extend(.card-2) {
+  display: block;
+  color: @header-foreground;
+  margin-bottom: 25px;
+  padding: 0;
+  border-radius: 0;
+
+  .content {
+    .center-it();
+  }
+}
