@@ -18,6 +18,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel?sourceMap'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html'
       }
     ]
   },
