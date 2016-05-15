@@ -1,0 +1,58 @@
+@import "../../styles/less/variables";
+
+header-banner {
+  display: block;
+  background-color: @primary;
+
+  .content {
+    display: flex;
+    flex-flow: row wrap;
+
+    .left,
+    .right {
+      flex-basis: 100%;
+
+      @media screen and (min-width: 775px) {
+        flex-basis: 50%;
+      }
+    }
+
+    .left .logo {
+      display: inline-block;
+      padding: 20px 0;
+
+      p {
+        font-size: .8em;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      li a {
+        display: inline-block;
+        padding: 10px 20px;
+        border-bottom: 2px solid transparent;
+        transition: border .3s;
+
+        &:hover {
+          border-bottom-color: @secondary;
+        }
+
+        &.active {
+          border-bottom-color: @header-foreground;
+        }
+      }
+    }
+
+    a {
+      &:hover,
+      &:focus,
+      &:active {
+        color: @header-foreground;
+      }
+    }
+  }
+}
