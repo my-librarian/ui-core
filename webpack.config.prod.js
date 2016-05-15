@@ -1,4 +1,5 @@
 /* eslint-disable no-var */
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,6 +20,14 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html'
+      },
+      {
+        test: /\.(css|less)$/,
+        loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot|svg|jpeg|png)/,
+        loader: 'url'
       }
     ]
   },
@@ -27,6 +36,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: 'body',
       template: './app/index.html'
-    })
+    }),
+    new ExtractTextPlugin('index.css')
   ]
 };
