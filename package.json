@@ -18,7 +18,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
+    "build": "webpack --config webpack.config.prod.js",
     "start": "webpack-dev-server",
+    "postversion": "git push && git push --tags",
     "eslint": "eslint ."
   }
 }
