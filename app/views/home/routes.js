@@ -1,4 +1,5 @@
 const home = {
+  parent: 'app',
   name: 'home',
   url: '/home',
   template: '<home></home>'
