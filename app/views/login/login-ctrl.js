@@ -1,8 +1,12 @@
 export default class LoginCtrl {
 
-  constructor(LoginSvc) {
+  constructor($state, LoginSvc) {
 
+    this.$state = $state;
     this.LoginSvc = LoginSvc;
+
+    this.checkLogin();
+
   }
 
   registerUser() {
@@ -33,11 +37,25 @@ export default class LoginCtrl {
       this.LoginSvc.loginUser(this.lDeptNo, btoa(this.lUPass))
         .then(() => {
           this.loginError = false;
+          this.LoginSvc.startSession();
+          this.goToHome();
         })
         .catch(() => {
           this.loginError = true;
           this.lUPass = '';
         });
+    }
+  }
+
+  goToHome() {
+
+    this.$state.go('home');
+  }
+
+  checkLogin() {
+
+    if (this.LoginSvc.userDetails.userid) {
+      this.goToHome();
     }
   }
 }
