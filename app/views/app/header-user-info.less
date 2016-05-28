@@ -1,0 +1,56 @@
+@import "../../styles/less/variables";
+
+header-user-info {
+  display: block;
+  background-color: @secondary;
+  padding: 5px 0;
+
+  .content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    a {
+
+      &:not(:last-of-type) {
+        margin-right: 20px;
+      }
+
+      .label {
+        font-size: .8em;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: @header-foreground;
+      }
+
+      &.logout,
+      &.profile,
+      &.message {
+        display: none;
+      }
+
+      &.home {
+        flex-grow: 1;
+      }
+    }
+
+    &.logged-in {
+
+      a {
+
+        &.logout,
+        &.profile,
+        &.message {
+          display: inline;
+        }
+
+        &.login {
+          display: none;
+        }
+      }
+    }
+  }
+}

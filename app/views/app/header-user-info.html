@@ -1,0 +1,34 @@
+<div class="content" ng-class="{'logged-in': !!vm.userDetails.userid}">
+  <a
+    class="home"
+    icon="home"
+    label="Home"
+    ui-sref="home"
+    user-info-attribute
+  ></a>
+  <a
+    class="message"
+    label="Hello there, {{vm.userDetails.name}}!"
+    user-info-attribute
+  ></a>
+  <a
+    class="login"
+    icon="user"
+    label="Log in"
+    ui-sref="login"
+    user-info-attribute
+  ></a>
+  <a
+    class="profile"
+    icon="user"
+    label="Profile"
+    user-info-attribute
+  ></a>
+  <a
+    class="logout"
+    icon="logout"
+    label="Log out"
+    ng-click="vm.logout()"
+    user-info-attribute
+  ></a>
+</div>
