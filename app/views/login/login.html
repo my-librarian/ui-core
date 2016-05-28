@@ -1,0 +1,47 @@
+<section class="left">
+  <div class="content">
+    <h2>Login</h2>
+    <label>
+      Department No.:
+      <input type="text" placeholder="Enter the dept. no." ng-model="vm.lDeptNo">
+    </label>
+    <label>
+      Password:
+      <input type="password" placeholder="Enter the password" ng-model="vm.lUPass">
+    </label>
+    <div ng-if="vm.loginError" class="error">
+      Username or password is wrong. Please try again.
+    </div>
+    <div class="actions">
+      <button ng-click="vm.loginUser()">Login</button>
+    </div>
+  </div>
+</section>
+<section class="center">
+  OR
+</section>
+<section class="right">
+  <div class="content">
+    <h2>Register</h2>
+    <label>
+      Full name:
+      <input type="text" placeholder="Enter your full name." ng-model="vm.rName">
+    </label>
+    <label>
+      Department No.:
+      <input type="text" placeholder="Enter your dept. no." ng-model="vm.rDeptNo">
+    </label>
+    <label>
+      Password:
+      <input type="password" placeholder="Enter a new password" ng-model="vm.rUPass">
+    </label>
+    <label>
+      Confirm password:
+      <input type="password" placeholder="Enter the password again" ng-model="vm.rCPass">
+      <div ng-if="vm.registerError" class="error">{{vm.error}}</div>
+    </label>
+    <div class="actions">
+      <button ng-click="vm.registerUser()">Register</button>
+    </div>
+  </div>
+</section>
