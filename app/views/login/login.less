@@ -1,0 +1,80 @@
+@import "../../styles/less/mixins";
+@import "../../styles/less/variables";
+
+login:extend(.card-2) {
+  .center-it();
+  display: flex;
+  padding: 25px;
+
+  h2 {
+    margin-bottom: 25px;
+  }
+
+  .left,
+  .right {
+    flex-basis: 40%;
+
+    .content {
+      .center-it();
+      width: 300px;
+
+      label {
+        font-size: .8em;
+        margin-bottom: 25px;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid @card-foreground;
+        padding: 10px 15px;
+        margin-bottom: 15px;
+        font-size: 1.25em;
+
+        &:hover, &:focus {
+          border-bottom-color: @primary;
+        }
+      }
+
+      .error {
+        color: @accent-color;
+      }
+
+      .actions {
+        text-align: right;
+
+        button {
+          &:extend(.card-0);
+          display: inline-block;
+          background-color: @secondary;
+          color: @header-foreground;
+          font-size: 100%;
+          padding: 10px 15px;
+
+          &:hover {
+            .card-2();
+            display: inline-block;
+            background-color: @primary;
+          }
+
+          &:active {
+            .card-1();
+            display: inline-block;
+            background-color: @secondary;
+          }
+        }
+      }
+    }
+  }
+
+  .center {
+    flex-basis: 20%;
+    text-align: center;
+    align-self: center;
+    padding: 50px 0;
+  }
+
+  @media screen and (max-width: 725px) {
+    flex-direction: column;
+  }
+}
