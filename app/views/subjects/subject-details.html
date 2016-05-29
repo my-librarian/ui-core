@@ -1,0 +1,17 @@
+<h2>{{vm.details.name}}</h2>
+
+<section>
+  <h3>Books</h3>
+  <book ng-repeat="book in vm.details.books" book="book"></book>
+  <aside ng-if="!vm.details.books.length">
+    There are no books listed under this subject.
+  </aside>
+</section>
+
+<section>
+  <h3>Authors</h3>
+  <author ng-repeat="author in vm.details.authors" author="author"></author>
+  <aside ng-if="!vm.details.books.length">
+    There are no subjects covered under this subject.
+  </aside>
+</section>
