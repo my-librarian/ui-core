@@ -43,17 +43,6 @@
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-.draw-bubble() {
-  &:extend(.card-1);
-  background: @accent-color;
-  color: @card-secondary-foreground;
-  display: inline-block;
-  padding: 3px 10px;
-  vertical-align: bottom;
-  font-size: .75em;
-  border-radius: 25px;
-}
-
 .details-header() {
   display: flex;
   align-items: flex-end;
@@ -66,4 +55,10 @@
   .back {
     font-size: .85em;
   }
+}
+
+.card-list() {
+  &:extend(.card-1);
+  padding: 10px;
+  margin-bottom: 5px;
 }
