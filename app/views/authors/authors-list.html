@@ -1,0 +1,13 @@
+<h2>
+  <i class="icon author"></i>
+  Authors
+</h2>
+
+<section ng-repeat="(alphabet, authors) in vm.authors">
+  <h4>{{alphabet}}</h4>
+  <ul class="authors">
+    <li class="author" ng-repeat="author in authors">
+      <a ui-sref="authors.details({id: author.authorid})">{{author.name}}</a>
+    </li>
+  </ul>
+</section>
