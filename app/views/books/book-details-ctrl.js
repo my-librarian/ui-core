@@ -1,8 +1,15 @@
 export default class BookDetailsCtrl {
 
-  constructor($stateParams, BooksSvc) {
+  constructor($state, BooksSvc) {
 
-    BooksSvc.getBook($stateParams.id)
+    this.$state = $state;
+
+    BooksSvc.getBook($state.params.id)
       .then(details => this.details = details);
+  }
+
+  getSubjectLink(id) {
+
+    return this.$state.href('subjects.details', {id});
   }
 }
