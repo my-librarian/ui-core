@@ -1,27 +1,22 @@
 <div class="content">
 
- <div class="left">
-  <a ui-sref="home" class="logo">
-   <h1>My Librarian</h1>
-   <p>Department of Sanskrit - RKMVC</p>
-  </a>
- </div>
+  <div class="left">
+    <a ui-sref="home" class="logo">
+      <h1>My Librarian</h1>
+      <p>Department of Sanskrit - RKMVC</p>
+    </a>
+  </div>
 
- <ul class="right">
-  <li>
-   <a>
-    <i class="icon search"></i>
-   </a>
-  </li>
-  <li>
-   <a ui-sref="books.list">Books</a>
-  </li>
-  <li>
-   <a>Authors</a>
-  </li>
-  <li>
-   <a>Subjects</a>
-  </li>
- </ul>
+  <ul class="right">
+    <li>
+      <a ui-sref-active="active" ui-sref="books.list">Books</a>
+    </li>
+    <li>
+      <a ui-sref-active="active" ui-sref="authors.list">Authors</a>
+    </li>
+    <li>
+      <a ui-sref-active="active" ui-sref="subjects.list">Subjects</a>
+    </li>
+  </ul>
 
 </div>
