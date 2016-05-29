@@ -1,0 +1,13 @@
+<h2>
+  <i class="icon subject"></i>
+  Subjects
+</h2>
+
+<section ng-repeat="(alphabet, subjects) in vm.subjects">
+  <h4>{{alphabet}}</h4>
+  <ul class="subjects">
+    <li class="subject" ng-repeat="subject in subjects">
+      <a ui-sref="subjects.details({id: subject.subjectid})">{{subject.name}}</a>
+    </li>
+  </ul>
+</section>
