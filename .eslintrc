@@ -22,6 +22,10 @@
       2,
       "smart"
     ],
+    "indent": [
+      "error",
+      2
+    ],
     "no-alert": 2,
     "no-caller": 2,
     "no-console": 2,
