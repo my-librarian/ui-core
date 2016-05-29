@@ -3,7 +3,7 @@ const app = {
   abstract: true,
   template: '<app></app>',
   resolve: {
-    userDetails: (LoginSvc) => LoginSvc.startSession()
+    userDetails: (LoginSvc) => LoginSvc.startSession().catch(() => ({}))
   }
 };
 
