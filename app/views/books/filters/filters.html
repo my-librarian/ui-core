@@ -1,0 +1,14 @@
+<div class="clear">
+  <a ng-click="clearFilters()">Clear filters</a>
+</div>
+
+<checkbox-list title="Authors" items="filters.authors" on-change="onChange()"></checkbox-list>
+<checkbox-list title="Subjects" items="filters.subjects" on-change="onChange()"></checkbox-list>
+
+<hr>
+
+<availability available="filters.available" borrowed="filters.borrowed" on-change="onChange()"></availability>
+
+<hr>
+
+<rack-grid items="filters.racks" on-change="onChange()"></rack-grid>
