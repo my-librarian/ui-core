@@ -1,0 +1,43 @@
+@import "../../../styles/less/variables";
+
+rack-grid {
+
+  .title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: .9em;
+    font-weight: bold;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      flex-basis: 20%;
+      text-align: center;
+
+      label {
+        display: block;
+        padding: 5px;
+
+        span {
+          display: block;
+          line-height: 2;
+          font-size: .75em;
+        }
+
+        input[type=checkbox] {
+          display: none;
+
+          &:checked + span {
+            background-color: @primary;
+            border-radius: 2px;
+            color: @header-foreground;
+          }
+        }
+      }
+
+    }
+  }
+}

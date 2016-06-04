@@ -1,0 +1,10 @@
+<div class="title">Rack No.:</div>
+
+<ul>
+  <li ng-repeat="item in items track by $index">
+    <label>
+      <input type="checkbox" ng-model="item.selected" ng-click="onChange()">
+      <span>{{item.label}}</span>
+    </label>
+  </li>
+</ul>
