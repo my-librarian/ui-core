@@ -1,0 +1,12 @@
+@import "../../../styles/less/mixins";
+
+.search-input-wrap {
+  &:extend(.card-2);
+  display: flex;
+  padding: 10px;
+  margin-bottom: 25px;
+
+  input[type=text] {
+    flex-grow: 1;
+  }
+}
