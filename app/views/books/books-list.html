@@ -1,1 +1,20 @@
-<book ng-repeat="book in vm.books" book="book"></book>
+<h2>
+  <i class="icon book"></i>
+  Books
+</h2>
+
+<main>
+
+  <aside class="books-filters">
+    <books-filters filters="vm.filters" on-change="vm.onFiltersChange()" on-clear-filters="vm.clearFilters()"></books-filters>
+  </aside>
+
+  <section class="books-list">
+    <input type="text" search-input autofocus ng-model="vm.search.title">
+
+    <div class="list">
+      <book ng-repeat="book in vm.books | filter: vm.search" book="book"></book>
+    </div>
+  </section>
+
+</main>

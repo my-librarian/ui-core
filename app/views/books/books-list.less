@@ -1,0 +1,31 @@
+@import "../../styles/less/mixins";
+
+books-list {
+
+  main {
+    display: flex;
+
+    aside.books-filters {
+      flex: 0 0 200px;
+      margin-right: 25px;
+    }
+
+    section.books-list {
+      flex-grow: 1;
+
+      .list {
+        &:extend(.card-1);
+
+        book {
+          display: block;
+          border-bottom: 1px solid @grid-divider;
+
+          a {
+            display: block;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}
