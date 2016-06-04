@@ -1,0 +1,22 @@
+<button>
+  <span class="title">
+    <i class="icon caret"></i>
+    {{title}}
+  </span>
+
+  <div class="pop-up">
+    <div class="title">
+      <a class="clear">Clear</a>
+      <i class="icon caret down"></i>
+      {{title}}
+    </div>
+
+    <hr>
+
+    <ul>
+      <li ng-repeat="item in items track by $index">
+        <checkbox label="{{item.label}}" model="item.selected"  on-change="onChange()"></checkbox>
+      </li>
+    </ul>
+  </div>
+</button>

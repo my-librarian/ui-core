@@ -1,0 +1,56 @@
+@import "../../../styles/less/mixins";
+
+checkbox-list {
+  display: block;
+  margin-bottom: 10px;
+
+  button {
+    display: block;
+    text-align: left;
+    position: relative;
+    font-size: 100%;
+    width: 100%;
+
+    .title {
+      cursor: pointer;
+    }
+
+    .pop-up {
+      &:extend(.card-4);
+      position: absolute;
+      min-width: 200px;
+      max-width: 500px;
+      padding: 10px;
+      display: none;
+      left: -10px;
+      top: -10px;
+      z-index: 1;
+
+      .title {
+        margin-bottom: 10px;
+
+        a.clear {
+          float: right;
+          line-height: 1.5;
+          margin-left: 25px;
+          font-size: .75em;
+        }
+      }
+
+      ul {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 20px;
+
+        li {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    &:focus .pop-up {
+      display: block;
+    }
+  }
+}
