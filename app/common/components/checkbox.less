@@ -1,0 +1,19 @@
+@import "../../styles/less/variables";
+
+checkbox label {
+  display: flex;
+  align-items: flex-end;
+
+  input[type=checkbox] {
+    display: none;
+
+    &:checked + .checkbox.icon:after {
+      content: "check_box";
+    }
+  }
+
+  .checkbox.icon {
+    color: @secondary;
+    align-self: flex-start;
+  }
+}
