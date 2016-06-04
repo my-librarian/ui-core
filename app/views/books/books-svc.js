@@ -5,10 +5,10 @@ export default class BooksSvc {
     this.$http = $http;
   }
 
-  getBooks() {
+  applyFilters($filters) {
 
     return this.$http
-      .get('/api/books')
+      .put('/api/books', $filters)
       .then(response => response.data);
   }
 
@@ -16,6 +16,20 @@ export default class BooksSvc {
 
     return this.$http
       .get(`/api/book/${bookId}`)
+      .then(response => response.data);
+  }
+
+  getBooks() {
+
+    return this.$http
+      .get('/api/books/list')
+      .then(response => response.data);
+  }
+
+  getFilters() {
+
+    return this.$http
+      .get('/api/books/filters')
       .then(response => response.data);
   }
 }
