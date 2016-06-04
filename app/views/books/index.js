@@ -5,9 +5,13 @@ import book from './book';
 import bookDetails from './book-details';
 import books from './books';
 import booksList from './books-list';
+import filters from './filters';
 import routes from './routes';
 
-export default angular.module('books', [])
+export default angular
+  .module('books', [
+    filters
+  ])
   .config(routes)
   .directive(...book)
   .directive(...bookDetails)
