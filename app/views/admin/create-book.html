@@ -1,0 +1,48 @@
+<form name="vm.createBookForm" novalidate>
+  <section class="fieldset">
+    <label class="accessno">
+      <span>Accession No.</span>
+      <input
+        type="text"
+        class="txt"
+        ng-model="vm.accessno"
+        ng-pattern="/^\d{5,6}$/"
+        placeholder="####"
+        ng-required="true">
+    </label>
+    <label class="rackno">
+      <span>Rack No.</span>
+      <input type="text" class="txt" ng-model="vm.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
+    </label>
+    <label class="adddate">
+      <span>Addition Date</span>
+      <input
+        class="txt"
+        is-open="vm.datepicker.isOpen"
+        max-date="vm.datepicker.maxDate"
+        ng-focus="vm.onAddDateFocus()"
+        ng-model="vm.adddate"
+        ng-required="true"
+        type="text"
+        uib-datepicker-popup="{{vm.datepicker.format}}"
+        readonly>
+    </label>
+    <label class="title">
+      <span>Title</span>
+      <input type="text" class="txt" ng-model="vm.title" placeholder="Enter book title" ng-required="true">
+    </label>
+    <label class="subject">
+      <span>Subject</span>
+      <input type="text" class="txt" ng-model="vm.subject" placeholder="Type to search or add new" ng-required="true">
+    </label>
+    <label class="author">
+      <span>Author(s)</span>
+      <input type="text" class="txt" ng-model="vm.author" placeholder="Type to search or add new" ng-required="true">
+    </label>
+  </section>
+  <ul class="errors"></ul>
+  <section class="actions">
+    <button class="reset" type="reset">Reset</button>
+    <button class="add" type="reset" ng-click="vm.createBook()" ng-disabled="vm.createBookForm.$invalid">Add</button>
+  </section>
+</form>
