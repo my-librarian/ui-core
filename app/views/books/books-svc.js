@@ -12,6 +12,13 @@ export default class BooksSvc {
       .then(response => response.data);
   }
 
+  createBook(book) {
+
+    return this.$http
+      .post('/api/book', book)
+      .then(response => response.data);
+  }
+
   getBook(bookId) {
 
     return this.$http
