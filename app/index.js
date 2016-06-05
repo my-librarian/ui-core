@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiBootstrap from 'angular-ui-bootstrap';
 import uiRouter from 'angular-ui-router';
 
+import admin from './views/admin';
 import app from './views/app';
 import authors from './views/authors';
 import books from './views/books';
@@ -18,6 +19,7 @@ const appName = 'librarian';
 angular.module(appName, [
   uiBootstrap,
   uiRouter,
+  admin,
   app,
   authors,
   books,
