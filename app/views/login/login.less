@@ -44,24 +44,7 @@ login:extend(.card-2) {
         text-align: right;
 
         button {
-          &:extend(.card-0);
-          display: inline-block;
-          background-color: @secondary;
-          color: @header-foreground;
-          font-size: 100%;
-          padding: 10px 15px;
-
-          &:hover {
-            .card-2();
-            display: inline-block;
-            background-color: @primary;
-          }
-
-          &:active {
-            .card-1();
-            display: inline-block;
-            background-color: @secondary;
-          }
+          .button();
         }
       }
     }
