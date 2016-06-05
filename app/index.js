@@ -1,4 +1,5 @@
 import angular from 'angular';
+import uiBootstrap from 'angular-ui-bootstrap';
 import uiRouter from 'angular-ui-router';
 
 import app from './views/app';
@@ -15,6 +16,7 @@ import './styles/css/material/material-icons.css';
 const appName = 'librarian';
 
 angular.module(appName, [
+  uiBootstrap,
   uiRouter,
   app,
   authors,
