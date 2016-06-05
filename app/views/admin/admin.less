@@ -1,0 +1,124 @@
+@import "../../styles/less/mixins";
+@import "../../styles/less/variables";
+
+admin {
+  display: block;
+  .center-it();
+
+  section.content {
+    display: flex;
+
+    ul.nav {
+      padding-top: 25px;
+      flex: 0 0 200px;
+
+      li {
+
+        a {
+          @tabHeight: 40px;
+          display: block;
+          height: @tabHeight;
+          line-height: @tabHeight;
+          border-radius: 2px 0 0 2px;
+          transition: all .3s;
+
+          &.active {
+            background-color: @primary;
+            color: @header-foreground;
+            padding-left: 10px;
+            position: relative;
+            z-index: 1;
+
+            &:after {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 100%;
+              max-height: 100%;
+              border-top: @tabHeight/2 solid transparent;
+              border-bottom: @tabHeight/2 solid transparent;
+              border-left: @tabHeight/2 solid @primary;
+            }
+          }
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid @grid-divider;
+        }
+      }
+    }
+
+    main {
+      flex-grow: 1;
+
+      .card-form() {
+        &:extend(.card-3);
+        padding: 25px 25px 25px 50px;
+      }
+
+      create-author,
+      create-book,
+      create-subject {
+        .card-form();
+      }
+
+      form {
+
+        section.fieldset {
+          display: flex;
+          flex-flow: row wrap;
+          margin-bottom: 25px;
+        }
+
+        section.actions {
+          text-align: right;
+
+          .add {
+            .button();
+          }
+
+          .reset {
+            margin-right: 10px;
+
+            &:hover {
+              color: @primary;
+            }
+          }
+        }
+
+        label {
+          margin-bottom: 10px;
+          font-size: .8em;
+
+          input {
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid @grid-divider;
+            padding: 5px 0;
+            font-size: 1.25em;
+
+            &.ng-touched,
+            &.ng-dirty {
+              &.ng-invalid {
+                border-bottom-color: @error-color;
+                background-color: fade(@error-color, 5%);
+              }
+            }
+          }
+
+          &.accessno,
+          &.rackno,
+          &.adddate {
+            flex-basis: 100%/3;
+          }
+
+          &.title,
+          &.subject,
+          &.author {
+            flex-basis: 100%;
+          }
+        }
+      }
+    }
+  }
+}
