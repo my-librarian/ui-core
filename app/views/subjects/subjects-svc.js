@@ -5,6 +5,13 @@ export default class SubjectsSvc {
     this.$http = $http;
   }
 
+  createSubject(subject) {
+
+    return this.$http
+      .post('/api/subject', {subject})
+      .then(response => response.data);
+  }
+
   getSubjects() {
 
     return this.$http
