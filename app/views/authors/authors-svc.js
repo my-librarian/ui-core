@@ -5,6 +5,13 @@ export default class AuthorsSvc {
     this.$http = $http;
   }
 
+  createAuthor(author) {
+
+    return this.$http
+      .post('/api/author', {author})
+      .then(response => response.data);
+  }
+
   getAuthors() {
 
     return this.$http
