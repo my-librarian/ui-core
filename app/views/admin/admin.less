@@ -88,14 +88,18 @@ admin {
 
         label {
           margin-bottom: 10px;
-          font-size: .8em;
+
+          span {
+            font-size: .65em;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
 
           input {
             display: block;
             width: 100%;
             border-bottom: 1px solid @grid-divider;
-            padding: 5px 0;
-            font-size: 1.25em;
+            padding: 5px;
 
             &.ng-touched,
             &.ng-dirty {
