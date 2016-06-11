@@ -12,6 +12,11 @@ export default class AuthorsSvc {
       .then(response => response.data);
   }
 
+  deleteAuthor(id) {
+
+    return this.$http.delete(`/api/author/${id}`);
+  }
+
   getAuthors() {
 
     return this.$http
