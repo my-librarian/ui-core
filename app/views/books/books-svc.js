@@ -19,6 +19,11 @@ export default class BooksSvc {
       .then(response => response.data);
   }
 
+  deleteBook(id) {
+
+    return this.$http.delete(`/api/book/${id}`);
+  }
+
   getBook(bookId) {
 
     return this.$http
