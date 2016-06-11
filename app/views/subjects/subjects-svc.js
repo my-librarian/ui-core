@@ -11,6 +11,11 @@ export default class SubjectsSvc {
       .post('/api/subject', {subject})
       .then(response => response.data);
   }
+  
+  deleteSubject(id) {
+
+    return this.$http.delete(`/api/subject/${id}`);
+  }
 
   getSubjects() {
 
