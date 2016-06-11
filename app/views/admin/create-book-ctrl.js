@@ -12,7 +12,10 @@ export default class CreateBookCtrl {
     this.datepicker = {
       format: 'dd-MMM-yyyy',
       isOpen: false,
-      maxDate: new Date()
+      options: {
+        maxDate: new Date(),
+        showWeeks: false
+      }
     };
   }
 

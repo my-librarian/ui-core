@@ -1,0 +1,49 @@
+@import "../../../node_modules/bootstrap/less/variables";
+@import "../../../node_modules/bootstrap/less/mixins/nav-divider";
+@import "../../../node_modules/bootstrap/less/mixins/reset-filter";
+@import "../../../node_modules/bootstrap/less/mixins/vendor-prefixes";
+@import "../../../node_modules/bootstrap/less/dropdowns";
+@import "../../../node_modules/bootstrap/less/glyphicons";
+@import "../../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css";
+@import "variables";
+
+.uib-datepicker {
+  padding: 10px;
+
+  thead tr:first-child th {
+    padding-bottom: 10px;
+  }
+
+  tbody {
+
+    button {
+      padding: 5px;
+
+      &:disabled {
+        color: @grid-divider;
+      }
+
+      &.active {
+        background-color: @primary;
+        color: @header-foreground;
+      }
+    }
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .uib-daypicker,
+  .uib-monthpicker,
+  .uib-yearpicker {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .uib-daypicker {
+    thead tr:last-child th {
+      padding: 5px;
+    }
+  }
+}

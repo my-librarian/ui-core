@@ -18,14 +18,16 @@
       <span>Addition Date</span>
       <input
         class="txt"
+        datepicker-options="vm.datepicker.options"
         is-open="vm.datepicker.isOpen"
-        max-date="vm.datepicker.maxDate"
         ng-focus="vm.onAddDateFocus()"
         ng-model="vm.adddate"
         ng-required="true"
+        show-button-bar="false"
         type="text"
         uib-datepicker-popup="{{vm.datepicker.format}}"
-        readonly>
+        readonly
+      >
     </label>
     <label class="title">
       <span>Title</span>
