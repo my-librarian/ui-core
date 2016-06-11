@@ -5,6 +5,35 @@ export default class CreateBookCtrl {
     this.BooksSvc = BooksSvc;
 
     this.defineDatepickerOptions();
+    this.resetAuthors();
+  }
+
+  addAuthorField() {
+
+    this.authors.push({});
+
+  }
+
+  createBook() {
+
+    const book = {
+      accessno: this.accessno,
+      adddate: this.adddate,
+      title: this.title,
+      rackno: this.rackno,
+      subject: this.subject,
+      authors: this.authors
+    };
+
+    this.BooksSvc.createBook(book)
+      .then(() => {
+
+        this.createBookForm.$setPristine();
+        this.createBookForm.$setUntouched();
+
+        this.resetAuthors();
+      });
+
   }
 
   defineDatepickerOptions() {
@@ -24,22 +53,14 @@ export default class CreateBookCtrl {
     this.datepicker.isOpen = true;
   }
 
-  createBook() {
+  removeAuthorField(index) {
 
-    const book = {
-      accessno: this.accessno,
-      adddate: this.adddate,
-      title: this.title,
-      rackno: this.rackno,
-      subject: this.subject
-    };
+    this.authors.splice(index, 1);
 
-    this.BooksSvc.createBook(book)
-      .then(() => {
+  }
 
-        this.createBookForm.$setPristine();
-        this.createBookForm.$setUntouched();
-      });
+  resetAuthors() {
 
+    this.authors = [{}];
   }
 }

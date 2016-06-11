@@ -89,10 +89,34 @@ admin {
         label {
           margin-bottom: 10px;
 
-          span {
+          span.label {
             font-size: .65em;
             font-weight: bold;
             text-transform: uppercase;
+
+            a {
+              float: right;
+              text-transform: none;
+              color: @secondary;
+              cursor: pointer;
+
+              &:hover {
+                color: @card-foreground;
+              }
+            }
+          }
+
+          span.input {
+            display: block;
+            position: relative;
+
+            .icon.close {
+              position: absolute;
+              top: 0;
+              right: 0;
+              line-height: 2;
+              font-size: .8em;
+            }
           }
 
           input {

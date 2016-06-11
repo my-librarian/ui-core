@@ -1,7 +1,7 @@
 <form name="vm.createBookForm" novalidate>
   <section class="fieldset">
     <label class="accessno">
-      <span>Accession No.</span>
+      <span class="label">Accession No.</span>
       <input
         type="text"
         class="txt"
@@ -11,11 +11,11 @@
         ng-required="true">
     </label>
     <label class="rackno">
-      <span>Rack No.</span>
+      <span class="label">Rack No.</span>
       <input type="text" class="txt" ng-model="vm.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
     </label>
     <label class="adddate">
-      <span>Addition Date</span>
+      <span class="label">Addition Date</span>
       <input
         class="txt"
         datepicker-options="vm.datepicker.options"
@@ -30,16 +30,19 @@
       >
     </label>
     <label class="title">
-      <span>Title</span>
+      <span class="label">Title</span>
       <input type="text" class="txt" ng-model="vm.title" placeholder="Enter book title" ng-required="true">
     </label>
     <label class="subject">
-      <span>Subject</span>
-      <input type="text" class="txt" ng-model="vm.subject" placeholder="Type to search or add new" ng-required="true">
+      <span class="label">Subject</span>
+      <subject-input model="vm.subject"></subject-input>
     </label>
     <label class="author">
-      <span>Author(s)</span>
-      <input type="text" class="txt" ng-model="vm.author" placeholder="Type to search or add new" ng-required="true">
+      <span class="label"><a ng-click="vm.addAuthorField()">Add Author</a>Author(s)</span>
+      <span class="input" ng-repeat="author in vm.authors track by $index">
+        <author-input model="author.name"></author-input>
+        <i class="icon close" ng-click="vm.removeAuthorField($index)" ng-if="!$first"></i>
+      </span>
     </label>
   </section>
   <ul class="errors"></ul>
