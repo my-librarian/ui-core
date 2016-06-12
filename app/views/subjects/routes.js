@@ -18,12 +18,19 @@ const subjectDetails = {
   template: '<subject-details />'
 };
 
+const subjectEdit = {
+  name: 'subjects.edit',
+  url: '/:id/edit',
+  template: '<subject-edit/>'
+};
+
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state(subjects)
     .state(subjectsList)
-    .state(subjectDetails);
+    .state(subjectDetails)
+    .state(subjectEdit);
 
   $urlRouterProvider.when('/subjects', '/subjects/all');
 }
