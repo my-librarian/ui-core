@@ -1,4 +1,4 @@
-import template from './typeahead-input.html';
+import template from './input.html';
 
 function subjectInput(SubjectsSvc) {
 
