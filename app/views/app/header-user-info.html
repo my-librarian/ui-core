@@ -1,4 +1,4 @@
-<div class="content" ng-class="{'logged-in': !!vm.userDetails.userid}">
+<div class="content" ng-class="{'logged-in': !!vm.user.details.userid}">
   <a
     class="home"
     icon="home"
@@ -8,7 +8,7 @@
   ></a>
   <a
     class="message"
-    label="Hello there, {{vm.userDetails.name}}!"
+    label="Hello there, {{vm.user.details.name}}!"
     user-info-attribute
   ></a>
   <a

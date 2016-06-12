@@ -4,11 +4,8 @@ export default class HeaderUserInfoCtrl {
 
     this.LoginSvc = LoginSvc;
 
-    this.userDetails = LoginSvc.userDetails;
+    this.user = LoginSvc.user;
 
-    $scope.$on('session/update', (event, userDetails) => {
-      this.userDetails = userDetails;
-    });
   }
 
   logout() {

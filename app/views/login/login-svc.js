@@ -5,7 +5,7 @@ export default class LoginSvc {
     this.$http = $http;
     this.$rootScope = $rootScope;
 
-    this.userDetails = {};
+    this.user = {};
   }
 
   loginUser(deptNo, pass) {
@@ -25,20 +25,13 @@ export default class LoginSvc {
     return this.$http
       .get('/api/session')
       .then(response => response.data)
-      .then(data => this.userDetails = data)
-      .then(() => this.broadcastSessionUpdate());
+      .then(data => this.user.details = data);
   }
 
   stopSession() {
 
     return this.$http
       .put('/api/session/stop')
-      .then(() => this.userDetails = {})
-      .then(() => this.broadcastSessionUpdate());
-  }
-
-  broadcastSessionUpdate() {
-
-    this.$rootScope.$broadcast('session/update', this.userDetails);
+      .then(() => this.user.details = {});
   }
 }
