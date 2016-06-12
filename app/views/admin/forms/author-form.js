@@ -8,7 +8,7 @@ const authorForm = {
   restrict: 'E',
   template,
   scope: {
-    author: '=',
+    author: '=?',
     onSubmit: '&',
     update: '@'
   }

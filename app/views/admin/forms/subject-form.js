@@ -9,7 +9,7 @@ const subjectForm = {
   template,
   scope: {
     onSubmit: '&',
-    subject: '=',
+    subject: '=?',
     update: '@'
   }
 };
