@@ -5,14 +5,10 @@ export default class CreateSubjectCtrl {
     this.SubjectsSvc = SubjectsSvc;
   }
 
-  createSubject() {
+  createSubject(subject, done) {
 
-    this.SubjectsSvc.createSubject(this.subject)
-      .then(() => {
-
-        this.createSubjectForm.$setPristine();
-        this.createSubjectForm.$setUntouched();
-      });
+    this.SubjectsSvc.createSubject(subject)
+      .then(done);
 
   }
 }

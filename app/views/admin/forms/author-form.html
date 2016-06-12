@@ -1,0 +1,15 @@
+<form name="vm.createAuthorForm" novalidate>
+  <section class="fieldset">
+    <label class="author">
+      <span class="label">Author name</span>
+      <author-input model="vm.author"></author-input>
+    </label>
+  </section>
+  <ul class="errors"></ul>
+  <section class="actions">
+    <button class="reset" type="reset">Reset</button>
+    <button class="submit" type="reset" ng-click="vm.onSubmitButtonClick()" ng-disabled="vm.createAuthorForm.$invalid">
+      {{update ? 'Update' : 'Add'}}
+    </button>
+  </section>
+</form>

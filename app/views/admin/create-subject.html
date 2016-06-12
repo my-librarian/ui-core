@@ -1,13 +1,1 @@
-<form name="vm.createSubjectForm" novalidate>
-  <section class="fieldset">
-    <label class="subject">
-      <span class="label">Subject name</span>
-      <subject-input model="vm.subject"></subject-input>
-    </label>
-  </section>
-  <ul class="errors"></ul>
-  <section class="actions">
-    <button class="reset" type="reset">Reset</button>
-    <button class="add" type="reset" ng-click="vm.createSubject()" ng-disabled="vm.createSubjectForm.$invalid">Add</button>
-  </section>
-</form>
+<subject-form on-submit="vm.createSubject(subject, onSuccess)"></subject-form>

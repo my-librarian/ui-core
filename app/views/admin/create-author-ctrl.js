@@ -5,14 +5,10 @@ export default class CreateAuthorCtrl {
     this.AuthorsSvc = AuthorsSvc;
   }
 
-  createAuthor() {
+  createAuthor(author, done) {
 
-    this.AuthorsSvc.createAuthor(this.author)
-      .then(() => {
-
-        this.createAuthorForm.$setPristine();
-        this.createAuthorForm.$setUntouched();
-      });
+    this.AuthorsSvc.createAuthor(author)
+      .then(done);
 
   }
 }

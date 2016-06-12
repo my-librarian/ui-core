@@ -1,0 +1,15 @@
+<form name="vm.createSubjectForm" novalidate>
+  <section class="fieldset">
+    <label class="subject">
+      <span class="label">Subject name</span>
+      <subject-input model="vm.subject"></subject-input>
+    </label>
+  </section>
+  <ul class="errors"></ul>
+  <section class="actions">
+    <button class="reset" type="reset">Reset</button>
+    <button class="submit" type="reset" ng-click="vm.onSubmitButtonClick()" ng-disabled="vm.createSubjectForm.$invalid">
+      {{update ? 'Update' : 'Add'}}
+    </button>
+  </section>
+</form>
