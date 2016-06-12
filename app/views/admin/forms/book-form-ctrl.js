@@ -2,6 +2,8 @@ export default class CreateBookCtrl {
 
   constructor(BooksSvc) {
 
+    this.book = this.book || {};
+
     this.BooksSvc = BooksSvc;
 
     this.defineDatepickerOptions();
@@ -10,19 +12,19 @@ export default class CreateBookCtrl {
 
   addAuthorField() {
 
-    this.authors.push({});
+    this.book.authors.push({});
 
   }
 
   onSubmitButtonClick() {
 
     const book = {
-      accessno: this.accessno,
-      adddate: this.adddate,
-      title: this.title,
-      rackno: this.rackno,
-      subject: this.subject,
-      authors: this.authors
+      accessno: this.book.accessno,
+      adddate: this.book.adddate,
+      title: this.book.title,
+      rackno: this.book.rackno,
+      subject: this.book.subject,
+      authors: this.book.authors
     };
 
     this.onSubmit({
@@ -55,12 +57,12 @@ export default class CreateBookCtrl {
 
   removeAuthorField(index) {
 
-    this.authors.splice(index, 1);
+    this.book.authors.splice(index, 1);
 
   }
 
   resetAuthors() {
 
-    this.authors = [{}];
+    this.book.authors = [{}];
   }
 }

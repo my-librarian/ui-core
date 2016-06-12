@@ -5,14 +5,14 @@
       <input
         type="text"
         class="txt"
-        ng-model="vm.accessno"
+        ng-model="vm.book.accessno"
         ng-pattern="/^\d{5,6}$/"
         placeholder="####"
         ng-required="true">
     </label>
     <label class="rackno">
       <span class="label">Rack No.</span>
-      <input type="text" class="txt" ng-model="vm.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
+      <input type="text" class="txt" ng-model="vm.book.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
     </label>
     <label class="adddate">
       <span class="label">Addition Date</span>
@@ -21,7 +21,7 @@
         datepicker-options="vm.datepicker.options"
         is-open="vm.datepicker.isOpen"
         ng-focus="vm.onAddDateFocus()"
-        ng-model="vm.adddate"
+        ng-model="vm.book.adddate"
         ng-required="true"
         show-button-bar="false"
         type="text"
@@ -31,15 +31,15 @@
     </label>
     <label class="title">
       <span class="label">Title</span>
-      <input type="text" class="txt" ng-model="vm.title" placeholder="Enter book title" ng-required="true">
+      <input type="text" class="txt" ng-model="vm.book.title" placeholder="Enter book title" ng-required="true">
     </label>
     <label class="subject">
       <span class="label">Subject</span>
-      <subject-input model="vm.subject"></subject-input>
+      <subject-input model="vm.book.subject"></subject-input>
     </label>
     <label class="author">
       <span class="label"><a ng-click="vm.addAuthorField()">Add Author</a>Author(s)</span>
-      <span class="input" ng-repeat="author in vm.authors track by $index">
+      <span class="input" ng-repeat="author in vm.book.authors track by $index">
         <author-input model="author.name"></author-input>
         <i class="icon close" ng-click="vm.removeAuthorField($index)" ng-if="!$first"></i>
       </span>
