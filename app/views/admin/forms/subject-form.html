@@ -7,9 +7,9 @@
   </section>
   <ul class="errors"></ul>
   <section class="actions">
-    <button class="reset" type="reset">Reset</button>
+    <button class="reset" type="reset" ng-if="!vm.update">Reset</button>
     <button class="submit" type="reset" ng-click="vm.onSubmitButtonClick()" ng-disabled="vm.createSubjectForm.$invalid">
-      {{update ? 'Update' : 'Add'}}
+      {{vm.update ? 'Update' : 'Add'}}
     </button>
   </section>
 </form>

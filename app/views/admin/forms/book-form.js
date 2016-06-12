@@ -8,6 +8,7 @@ const bookForm = {
   restrict: 'E',
   template,
   scope: {
+    book: '=',
     onSubmit: '&',
     update: '@'
   }
