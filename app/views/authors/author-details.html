@@ -1,7 +1,8 @@
 <h2>
   <i class="icon author"></i>
   {{vm.details.name}}
-  <i class="icon delete" ng-click="vm.deleteAuthor()"></i>
+  <i class="icon delete" ng-click="vm.deleteAuthor()" title="Delete Author"></i>
+  <i class="icon edit" ui-sref="authors.edit({id: vm.details.authorid})" title="Edit Author"></i>
 </h2>
 
 <section>

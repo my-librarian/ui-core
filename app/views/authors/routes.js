@@ -18,12 +18,19 @@ const authorDetails = {
   template: '<author-details />'
 };
 
+const authorEdit = {
+  name: 'authors.edit',
+  url: '/:id/edit',
+  template: '<author-edit />'
+};
+
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state(authors)
     .state(authorsList)
-    .state(authorDetails);
+    .state(authorDetails)
+    .state(authorEdit);
 
   $urlRouterProvider.when('/authors', '/authors/all');
 }
