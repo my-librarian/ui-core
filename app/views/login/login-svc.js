@@ -8,10 +8,10 @@ export default class LoginSvc {
     this.user = {};
   }
 
-  loginUser(deptNo, pass) {
+  loginUser(deptNo, pass, session = 1) {
 
     return this.$http
-      .get(`/api/user/${deptNo}/${pass}/1`);
+      .get(`/api/user/${deptNo}/${pass}/${session}`);
   }
 
   registerUser(user) {
