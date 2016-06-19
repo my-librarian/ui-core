@@ -1,9 +1,11 @@
 export default class BookDetailsCtrl {
 
-  constructor($state, BooksSvc) {
+  constructor($state, BooksSvc, LoginSvc, ModalSvc) {
 
     this.$state = $state;
     this.BooksSvc = BooksSvc;
+    this.LoginSvc = LoginSvc;
+    this.ModalSvc = ModalSvc;
 
     this.getBook();
   }
@@ -38,9 +40,21 @@ export default class BookDetailsCtrl {
 
   }
 
-  getSubjectLink(id) {
+  borrowBook() {
 
-    return this.$state.href('subjects.details', {id});
+    this.ModalSvc.openBorrowModal(this.details.title)
+      .then(([issuerid, timespan]) => this.BooksSvc.borrowBook(
+        this.LoginSvc.user.details.userid,
+        issuerid,
+        this.details.bookid,
+        timespan
+      ));
+  }
+
+  deleteBook() {
+
+    this.BooksSvc.deleteBook(this.details.bookid)
+      .then(() => this.$state.go('books.list'));
   }
 
   getBook() {
@@ -59,9 +73,19 @@ export default class BookDetailsCtrl {
       });
   }
 
-  deleteBook() {
+  getSubjectLink(id) {
 
-    this.BooksSvc.deleteBook(this.details.bookid)
-      .then(() => this.$state.go('books.list'));
+    return this.$state.href('subjects.details', {id});
+  }
+
+  issueBook() {
+
+    this.ModalSvc.openIssueModal(this.details.title)
+      .then(([userid, timespan]) => this.BooksSvc.borrowBook(
+        userid,
+        this.LoginSvc.user.details.userid,
+        this.details.bookid,
+        timespan
+      ));
   }
 }

@@ -12,6 +12,20 @@ export default class BooksSvc {
       .then(response => response.data);
   }
 
+  borrowBook(userid, issuerid, bookid, timespan) {
+
+    const postArgs = {
+      userid,
+      issuerid,
+      bookid,
+      timespan
+    };
+
+    return this.$http
+      .post('/api/borrow', postArgs);
+
+  }
+
   createBook(book) {
 
     return this.$http

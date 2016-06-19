@@ -1,6 +1,8 @@
 <h2>
   <i class="icon book"></i>
   {{vm.details.title}}
+  <button class="borrow" ng-click="vm.borrowBook()">Borrow</button>
+  <button class="issue" ng-click="vm.issueBook()">Issue</button>
   <i class="icon delete" ng-click="vm.deleteBook()"></i>
   <i class="icon edit" ui-sref="books.edit({id: vm.details.bookid})" title="Edit Book"></i>
 </h2>
