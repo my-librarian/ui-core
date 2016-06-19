@@ -1,0 +1,25 @@
+<form name="vm.borrowAuthForm" ng-submit="vm.authorizeUser()" novalidate>
+  <section class="fieldset">
+    <label class="big">
+      <span class="label">Issuer Id</span>
+      <input type="text" ng-model="vm.iDeptNo" ng-required="true" autofocus placeholder="Enter id">
+    </label>
+    <label class="big">
+      <span class="label">Issuer Password</span>
+      <input type="password" ng-model="vm.iPass" ng-required="true" placeholder="Enter password">
+    </label>
+    <label class="radio big">
+      <span class="label">Issue Timespan</span>
+      <radio value="short" label="Short span" model="vm.timespan" required="true"></radio>
+      <radio value="long" label="Long span" model="vm.timespan" required="true"></radio>
+    </label>
+  </section>
+  <section class="errors" ng-if="vm.error">
+    {{vm.error}}
+  </section>
+  <section class="actions">
+    <button class="submit" type="submit" ng-disabled="vm.borrowAuthForm.$invalid">
+      Authorize
+    </button>
+  </section>
+</form>
