@@ -36,20 +36,29 @@ a {
 h2 {
   margin-bottom: 25px;
 
-  .icon {
+  .to-right() {
+    float: right;
+    opacity: .75;
+    cursor: pointer;
+    margin-left: 10px;
+  }
 
+  .icon {
     &.delete,
     &.add,
     &.edit {
-      float: right;
-      opacity: .75;
-      cursor: pointer;
-      margin-left: 10px;
+      .to-right();
 
       &:hover {
         opacity: 1;
       }
     }
+  }
+
+  button {
+    .to-right();
+    .button();
+    font-size: 1rem;
   }
 }
 
@@ -71,5 +80,9 @@ section aside {
 
 hr {
   border-bottom: 1px solid @grid-divider;
+  margin-bottom: 10px;
+}
+
+p {
   margin-bottom: 10px;
 }
