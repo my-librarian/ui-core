@@ -13,11 +13,11 @@ export default class BookEditCtrl {
     this.BooksSvc.getBook(this.$state.params.id)
       .then(book => {
 
-        const adddate = new Date(book.adddate);
+        const acquisitiondate = new Date(book.acquisitiondate);
 
-        adddate.setMinutes(adddate.getTimezoneOffset());
+        acquisitiondate.setMinutes(acquisitiondate.getTimezoneOffset());
 
-        book.adddate = adddate;
+        book.acquisitiondate = acquisitiondate;
 
         this.book = book;
       });

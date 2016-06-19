@@ -14,7 +14,7 @@
 
   <attribute
     label="Added Date"
-    value="{{vm.details.adddate}}"
+    value="{{vm.details.acquisitiondate}}"
   ></attribute>
 
   <attribute
@@ -23,11 +23,55 @@
   ></attribute>
 
   <attribute
-    label="Subject"
-    value="{{vm.details.subject}}"
-    link="{{vm.getSubjectLink(vm.details.subjectid)}}"
+    label="Pages"
+    value="{{vm.details.pages}}"
   ></attribute>
 
+  <attribute
+    label="Publication Year"
+    value="{{vm.details.year}}"
+  ></attribute>
+
+  <attribute
+    label="Language"
+    value="{{vm.details.language}}"
+  ></attribute>
+
+  <attribute
+    label="ISBN"
+    value="{{vm.details.isbn}}"
+  ></attribute>
+
+  <attribute
+    label="Price"
+    value="{{vm.details.cost | currency: '&#8377;'}}"
+  ></attribute>
+
+  <attribute
+    label="Copy"
+    value="{{vm.details.original ? 'Original' : 'Photocopy'}}"
+  ></attribute>
+
+  <attribute
+    label="Cover"
+    value="{{vm.details.binding}}"
+  ></attribute>
+
+  <attribute
+    label="Condition"
+    value="{{vm.details.condition}}"
+  ></attribute>
+
+  <attribute
+    label="Source"
+    value="{{vm.details.source}}"
+  ></attribute>
+
+</section>
+
+<section ng-if="vm.details.description">
+  <h3>Description</h3>
+  <pre class="description">{{vm.details.description}}</pre>
 </section>
 
 <section>
@@ -35,5 +79,13 @@
   <author ng-repeat="author in vm.details.authors" author="author"></author>
   <aside ng-if="!vm.details.authors.length">
     There are no authors listed for this book.
+  </aside>
+</section>
+
+<section>
+  <h3>Subjects</h3>
+  <subject ng-repeat="subject in vm.details.subjects" subject="subject"></subject>
+  <aside ng-if="!vm.details.subjects.length">
+    There are no subjects listed for this book.
   </aside>
 </section>

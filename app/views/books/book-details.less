@@ -4,9 +4,12 @@ book-details {
   display: block;
 
   .attributes {
+    display: flex;
+    flex-flow: row wrap;
 
     attribute {
       display: block;
+      flex-basis: 100%/3;
       margin-bottom: 10px;
 
       .label {
@@ -32,8 +35,14 @@ book-details {
       margin-bottom: 10px;
     }
 
-    author {
+    author,
+    subject {
       .card-list();
+    }
+
+    pre.description {
+      &:extend(.card-1);
+      padding: 15px;
     }
   }
 }
