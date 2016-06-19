@@ -7,7 +7,7 @@ export default class CreateBookCtrl {
     this.BooksSvc = BooksSvc;
 
     this.defineDatepickerOptions();
-    this.resetAuthors();
+    this.resetForm();
   }
 
   addAuthorField() {
@@ -16,19 +16,16 @@ export default class CreateBookCtrl {
 
   }
 
+  addSubjectField() {
+
+    this.book.subjects.push({});
+
+  }
+
   onSubmitButtonClick() {
 
-    const book = {
-      accessno: this.book.accessno,
-      adddate: this.book.adddate,
-      title: this.book.title,
-      rackno: this.book.rackno,
-      subject: this.book.subject,
-      authors: this.book.authors
-    };
-
     this.onSubmit({
-      book,
+      book: this.book,
       onSuccess: () => {
 
         this.createBookForm.$setPristine();
@@ -50,7 +47,7 @@ export default class CreateBookCtrl {
     };
   }
 
-  onAddDateFocus() {
+  onAcqDateFocus() {
 
     this.datepicker.isOpen = true;
   }
@@ -61,8 +58,19 @@ export default class CreateBookCtrl {
 
   }
 
-  resetAuthors() {
+  removeSubjectField(index) {
 
+    this.book.subjects.splice(index, 1);
+
+  }
+
+  resetForm() {
+
+    this.book.condition = 'good';
+    this.book.source = 'cl';
+    this.book.binding = 'paper';
+    this.book.original = true;
     this.book.authors = [{}];
+    this.book.subjects = [{}];
   }
 }

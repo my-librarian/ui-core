@@ -1,6 +1,6 @@
 <form name="vm.createBookForm" novalidate>
   <section class="fieldset">
-    <label class="accessno">
+    <label class="accessno small">
       <span class="label">Accession No.</span>
       <input
         type="text"
@@ -10,18 +10,18 @@
         placeholder="####"
         ng-required="true">
     </label>
-    <label class="rackno">
+    <label class="rackno small">
       <span class="label">Rack No.</span>
       <input type="text" class="txt" ng-model="vm.book.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
     </label>
-    <label class="adddate">
-      <span class="label">Addition Date</span>
+    <label class="acquisitiondate small">
+      <span class="label">Acquisition Date</span>
       <input
         class="txt"
         datepicker-options="vm.datepicker.options"
         is-open="vm.datepicker.isOpen"
-        ng-focus="vm.onAddDateFocus()"
-        ng-model="vm.book.adddate"
+        ng-focus="vm.onAcqDateFocus()"
+        ng-model="vm.book.acquisitiondate"
         ng-required="true"
         show-button-bar="false"
         type="text"
@@ -29,20 +29,78 @@
         readonly
       >
     </label>
-    <label class="title">
+    <label class="title big">
       <span class="label">Title</span>
       <input type="text" class="txt" ng-model="vm.book.title" placeholder="Enter book title" ng-required="true">
     </label>
-    <label class="subject">
-      <span class="label">Subject</span>
-      <subject-input model="vm.book.subject"></subject-input>
+    <label class="subject big">
+      <span class="label"><a ng-click="vm.addSubjectField()">Add Subject</a>Subject(s)</span>
+      <span class="input" ng-repeat="subject in vm.book.subjects track by $index">
+        <subject-input model="subject.name"></subject-input>
+        <i class="icon close" ng-click="vm.removeSubjectField($index)" ng-if="!$first"></i>
+      </span>
     </label>
-    <label class="author">
+    <label class="author big">
       <span class="label"><a ng-click="vm.addAuthorField()">Add Author</a>Author(s)</span>
       <span class="input" ng-repeat="author in vm.book.authors track by $index">
         <author-input model="author.name"></author-input>
         <i class="icon close" ng-click="vm.removeAuthorField($index)" ng-if="!$first"></i>
       </span>
+    </label>
+    <label class="description big">
+      <span class="label">Brief description</span>
+      <textarea ng-model="vm.book.description" rows="5" placeholder="Write a brief description of the book."></textarea>
+      <ul class="hints">
+        <li>Use '{br}' to enter new lines</li>
+      </ul>
+    </label>
+    <label class="pages small">
+      <span class="label">No. of pages</span>
+      <input ng-model="vm.book.pages" ng-pattern="/^[1-9]\d*$/" placeholder="e.g 230">
+    </label>
+    <label class="year small">
+      <span class="label">Publication year</span>
+      <input ng-model="vm.book.year" ng-pattern="/^\d{0,4}$/" placeholder="YYYY">
+    </label>
+    <label class="language small">
+      <span class="label">Language</span>
+      <language-input model="vm.book.language"></language-input>
+    </label>
+    <label class="isbn small">
+      <span class="label">ISBN</span>
+      <input ng-model="vm.book.isbn" placeholder="Enter ISBN" maxlength="15">
+    </label>
+    <label class="cost small">
+      <span class="label">Price</span>
+      <input ng-model="vm.book.cost" placeholder="Rs." ng-pattern="/^\d*(\.\d+)?$/">
+    </label>
+    <label class="original small">
+      <span class="label">Original</span>
+      <checkbox model="vm.book.original"></checkbox>
+    </label>
+    <label class="binding small">
+      <span class="label">Binding</span>
+      <select ng-model="vm.book.binding">
+        <option value="hard">Hard Cover</option>
+        <option value="paper">Paper Cover</option>
+      </select>
+    </label>
+    <label class="source small">
+      <span class="label">Source</span>
+      <select ng-model="vm.book.source">
+        <option value="cl">Central Library</option>
+        <option value="dc">Donated Copy</option>
+        <option value="cc">Complimented Copy</option>
+        <option value="ot">Other</option>
+      </select>
+    </label>
+    <label class="condition small">
+      <span class="label">Condition</span>
+      <select ng-model="vm.book.condition">
+        <option value="good">Good</option>
+        <option value="damaged">Damaged</option>
+        <option value="tbr">To be replaced</option>
+      </select>
     </label>
   </section>
   <ul class="errors"></ul>

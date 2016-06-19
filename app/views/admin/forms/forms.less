@@ -63,7 +63,9 @@ subject-form {
         }
       }
 
-      input {
+      input,
+      select,
+      textarea {
         display: block;
         width: 100%;
         border-bottom: 1px solid @grid-divider;
@@ -78,15 +80,22 @@ subject-form {
         }
       }
 
-      &.accessno,
-      &.rackno,
-      &.adddate {
+      textarea {
+        resize: vertical;
+        margin-bottom: 10px;
+      }
+
+      ul.hints {
+        font-size: .70em;
+        color: @primary;
+        text-align: right;
+      }
+
+      &.small {
         flex-basis: 100%/3;
       }
 
-      &.title,
-      &.subject,
-      &.author {
+      &.big {
         flex-basis: 100%;
       }
     }
