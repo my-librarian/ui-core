@@ -26,7 +26,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
       },
       {
-        test: /\.(woff|woff2|ttf|eot|svg|jpeg|png)/,
+        test: /\.(woff|woff2|ttf|eot|svg|jpeg|png|gif)/,
         loader: 'url'
       }
     ]
