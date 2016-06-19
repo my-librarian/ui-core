@@ -3,6 +3,8 @@
 
 author-form,
 book-form,
+borrow-auth-form,
+issue-form,
 subject-form {
 
   form {
@@ -27,6 +29,11 @@ subject-form {
           color: @primary;
         }
       }
+    }
+
+    section.errors {
+      font-size: .85em;
+      color: @error-color;
     }
 
     label {
@@ -97,6 +104,11 @@ subject-form {
 
       &.big {
         flex-basis: 100%;
+      }
+
+      &.radio .label {
+        display: inline-block;
+        margin-bottom: 10px;
       }
     }
   }
