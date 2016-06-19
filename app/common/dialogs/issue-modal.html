@@ -1,0 +1,10 @@
+<header class="modal-header">
+  Issuing Book
+  <i class="icon close" ng-click="vm.dismissModal()"></i>
+</header>
+
+<main class="modal-body">
+  <p>You are about to issue the book, "{{vm.modalData.title}}".</p>
+  <p>Please provide following details.</p>
+  <issue-form on-success="vm.closeModal(deptNo, timespan)"></issue-form>
+</main>
