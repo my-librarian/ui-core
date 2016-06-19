@@ -1,0 +1,10 @@
+<header class="modal-header">
+  Borrowing Book
+  <i class="icon close" ng-click="vm.dismissModal()"></i>
+</header>
+
+<main class="modal-body">
+  <p>You are about to borrow the book, "{{vm.modalData.title}}".</p>
+  <p>Authorization is required. Please provide following details.</p>
+  <borrow-auth-form on-success="vm.closeModal(deptNo, timespan)"></borrow-auth-form>
+</main>
