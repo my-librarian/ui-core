@@ -11,7 +11,7 @@ export default class LoginSvc {
   loginUser(deptNo, pass) {
 
     return this.$http
-      .get(`/api/user/${deptNo}/${pass}`);
+      .get(`/api/user/${deptNo}/${pass}/1`);
   }
 
   registerUser(user) {
@@ -22,8 +22,7 @@ export default class LoginSvc {
 
   startSession() {
 
-    return this.$http
-      .get('/api/session')
+    return this.$http.get('/api/session')
       .then(response => response.data)
       .then(data => this.user.details = data);
   }
