@@ -6,10 +6,12 @@ import header from './header';
 import headerBanner from './header-banner';
 import headerUserInfo from './header-user-info';
 import headerUserInfoCtrl from './header-user-info-ctrl';
+import interceptor from './interceptor';
 import routes from './routes';
 import userInfoAttribute from './user-info-attribute';
 
 export default angular.module('app', [])
+  .config(interceptor)
   .config(routes)
   .directive(...app)
   .directive(...body)
