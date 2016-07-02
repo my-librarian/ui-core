@@ -5,10 +5,11 @@ import './radio.less';
 const radio = {
   restrict: 'E',
   scope: {
-    model: '=',
     label: '@',
-    value: '@',
-    required: '=?'
+    model: '=',
+    onChange: '&',
+    required: '=?',
+    value: '@'
   },
   template
 };
