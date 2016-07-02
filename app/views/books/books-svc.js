@@ -53,6 +53,13 @@ export default class BooksSvc {
       .then(response => response.data);
   }
 
+  getBorrowedBooks() {
+
+    return this.$http
+      .get('/api/books/borrowed')
+      .then(response => response.data);
+  }
+
   getFilters() {
 
     return this.$http

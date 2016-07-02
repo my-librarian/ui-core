@@ -1,0 +1,10 @@
+<main class="borrowed-books-list" ng-if="vm.books.length">
+  <div class="book row" ng-repeat="book in vm.books">
+    <book class="card-form" book="book"></book>
+    <div class="borrowed-by">Borrowed by {{book.username}} ({{book.userDeptNo}})</div>
+    <button class="return" ng-click="vm.returnBook(book, $index)">Return</button>
+  </div>
+</main>
+<aside ng-if="!vm.books.length">
+  All the books had been returned.
+</aside>

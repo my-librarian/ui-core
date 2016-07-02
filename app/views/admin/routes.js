@@ -23,11 +23,18 @@ const adminCreateSubject = {
   template: '<create-subject></create-subject>'
 };
 
+const adminReturnBooks = {
+  name: 'admin.returnBooks',
+  url: '/returnBooks',
+  template: '<return-books></return-books>'
+};
+
 export default function routes($stateProvider) {
 
   $stateProvider
     .state(admin)
     .state(adminCreateAuthor)
     .state(adminCreateBook)
-    .state(adminCreateSubject);
+    .state(adminCreateSubject)
+    .state(adminReturnBooks);
 }

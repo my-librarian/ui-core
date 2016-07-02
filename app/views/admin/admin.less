@@ -58,8 +58,48 @@ admin {
 
       create-author,
       create-book,
-      create-subject {
+      create-subject,
+      return-books .borrowed-books-list {
         .card-form();
+      }
+
+      return-books {
+
+        .borrowed-books-list {
+          .book.row {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+
+            &:not(:last-child) {
+              margin-bottom: 10px;
+              padding-bottom: 10px;
+              border-bottom: 1px solid @grid-divider;
+            }
+
+            book {
+              flex-basis: 100%;
+            }
+
+            .borrowed-by {
+              flex-grow: 1;
+              text-indent: 35px;
+              font-size: .9em;
+              color: @surface-secondary-foreground;
+            }
+
+            .return {
+              .button();
+              font-size: .9em;
+              padding: 5px 10px;
+            }
+          }
+        }
+
+        aside {
+          padding-top: 25px;
+          text-align: center;
+        }
       }
     }
   }
