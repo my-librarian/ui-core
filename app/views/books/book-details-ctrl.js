@@ -43,12 +43,11 @@ export default class BookDetailsCtrl {
   borrowBook() {
 
     this.ModalSvc.openBorrowModal(this.details.title)
-      .then(([issuerid, timespan]) => this.BooksSvc.borrowBook(
-        this.LoginSvc.user.details.userid,
-        issuerid,
-        this.details.bookid,
-        timespan
-      ));
+      .then(([issuerid, timespan]) =>
+        this.BooksSvc
+          .borrowBook(this.LoginSvc.user.details.userid, issuerid, this.details.bookid, timespan)
+          .then(({id}) => this.details.borrowid = id)
+      );
   }
 
   deleteBook() {
@@ -81,11 +80,20 @@ export default class BookDetailsCtrl {
   issueBook() {
 
     this.ModalSvc.openIssueModal(this.details.title)
-      .then(([userid, timespan]) => this.BooksSvc.borrowBook(
-        userid,
-        this.LoginSvc.user.details.userid,
-        this.details.bookid,
-        timespan
-      ));
+      .then(([userid, timespan]) =>
+        this.BooksSvc
+          .borrowBook(userid, this.LoginSvc.user.details.userid, this.details.bookid, timespan)
+          .then(({id}) => this.details.borrowid = id)
+      );
+  }
+
+  returnBook() {
+
+    this.ModalSvc.openReturnModal(this.details.title)
+      .then(([receiverid]) =>
+        this.BooksSvc
+          .returnBook(this.details.borrowid, receiverid)
+          .then(() => this.details.borrowid = null)
+      );
   }
 }

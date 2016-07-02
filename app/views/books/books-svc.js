@@ -22,7 +22,8 @@ export default class BooksSvc {
     };
 
     return this.$http
-      .post('/api/borrow', postArgs);
+      .post('/api/borrow', postArgs)
+      .then(response => response.data);
 
   }
 
@@ -56,6 +57,13 @@ export default class BooksSvc {
 
     return this.$http
       .get('/api/books/filters')
+      .then(response => response.data);
+  }
+
+  returnBook(borrowid, receiverid) {
+
+    return this.$http
+      .put(`/api/borrow/${borrowid}/${receiverid}`)
       .then(response => response.data);
   }
 }
