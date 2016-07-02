@@ -6,8 +6,7 @@ const availability = {
   restrict: 'E',
   template,
   scope: {
-    available: '=',
-    borrowed: '=',
+    availability: '=',
     onChange: '&'
   }
 };

@@ -4,9 +4,12 @@
 
 <ul>
   <li>
-    <checkbox label="Borrowed" model="borrowed" on-change="onChange()"></checkbox>
+    <radio label="All" model="availability" value="all" on-change="onChange()"></radio>
   </li>
   <li>
-    <checkbox label="Available" model="available" on-change="onChange()"></checkbox>
+    <radio label="Borrowed" model="availability" value="borrowed" on-change="onChange()"></radio>
+  </li>
+  <li>
+    <radio label="Available" model="availability" value="available" on-change="onChange()"></radio>
   </li>
 </ul>
