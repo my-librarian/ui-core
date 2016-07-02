@@ -1,6 +1,7 @@
 import controller from './modal-ctrl';
 import borrowModalTemplate from './borrow-modal.html';
 import issueModalTemplate from './issue-modal.html';
+import returnModalTemplate from './return-modal.html';
 
 export default class ModalSvc {
 
@@ -31,5 +32,10 @@ export default class ModalSvc {
   openIssueModal(title) {
 
     return this.openModal({title}, issueModalTemplate);
+  }
+
+  openReturnModal(title) {
+
+    return this.openModal({title}, returnModalTemplate);
   }
 }
