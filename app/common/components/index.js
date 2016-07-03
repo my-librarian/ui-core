@@ -1,11 +1,11 @@
 import angular from 'angular';
 
-import LoaderSvc from './loader-svc';
+import LoaderSvc from './loader/loader-svc';
 import attribute from './attribute';
 import authorInput from './typeahead/author-input';
 import checkbox from './checkbox';
 import languageInput from './typeahead/language-input';
-import loader from './loader';
+import loader from './loader/loader';
 import radio from './radio';
 import subjectInput from './typeahead/subject-input';
 
