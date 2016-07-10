@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class AuthorsListCtrl {
 
   constructor($filter, AuthorsSvc) {

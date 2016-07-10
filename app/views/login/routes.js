@@ -5,6 +5,7 @@ const login = {
   template: '<login></login>'
 };
 
+/*@ngInject*/
 export default function routes($stateProvider) {
 
   $stateProvider

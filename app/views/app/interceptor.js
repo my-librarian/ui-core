@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default function interceptor($httpProvider) {
 
   $httpProvider.interceptors.push(function ($q, LoaderSvc) {

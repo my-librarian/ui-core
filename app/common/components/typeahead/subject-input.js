@@ -1,5 +1,6 @@
 import template from './input.html';
 
+/*@ngInject*/
 function subjectInput(SubjectsSvc) {
 
   function link($scope) {

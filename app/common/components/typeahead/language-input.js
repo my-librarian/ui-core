@@ -1,5 +1,6 @@
 import template from './input.html';
 
+/*@ngInject*/
 function languageInput(LanguageSvc) {
 
   function link($scope) {

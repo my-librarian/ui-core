@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class LoginSvc {
 
   constructor($http, $rootScope) {

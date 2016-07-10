@@ -2,6 +2,7 @@ import template from './loader.html';
 
 import './loader.less';
 
+/*@ngInject*/
 function loader(LoaderSvc) {
 
   function link($scope) {

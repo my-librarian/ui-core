@@ -29,6 +29,7 @@ const adminReturnBooks = {
   template: '<return-books></return-books>'
 };
 
+/*@ngInject*/
 export default function routes($stateProvider) {
 
   $stateProvider

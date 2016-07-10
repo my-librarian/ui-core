@@ -3,6 +3,7 @@ import borrowModalTemplate from './borrow-modal.html';
 import issueModalTemplate from './issue-modal.html';
 import returnModalTemplate from './return-modal.html';
 
+/*@ngInject*/
 export default class ModalSvc {
 
   constructor($uibModal) {

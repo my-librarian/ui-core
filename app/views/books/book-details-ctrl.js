@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class BookDetailsCtrl {
 
   constructor($state, BooksSvc, LoginSvc, ModalSvc) {

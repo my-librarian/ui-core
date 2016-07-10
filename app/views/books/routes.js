@@ -24,6 +24,7 @@ const bookEdit = {
   template: '<book-edit />'
 };
 
+/*@ngInject*/
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider

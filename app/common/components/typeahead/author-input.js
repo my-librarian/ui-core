@@ -1,5 +1,6 @@
 import template from './input.html';
 
+/*@ngInject*/
 function authorInput(AuthorsSvc) {
 
   function link($scope) {

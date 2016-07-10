@@ -24,6 +24,7 @@ const subjectEdit = {
   template: '<subject-edit/>'
 };
 
+/*@ngInject*/
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider

@@ -5,6 +5,7 @@ const home = {
   template: '<home></home>'
 };
 
+/*@ngInject*/
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider

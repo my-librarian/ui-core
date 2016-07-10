@@ -2,6 +2,7 @@ import template from './alerts.html';
 
 import './alerts.less';
 
+/*@ngInject*/
 function alerts(AlertsSvc) {
 
   function link($scope) {

@@ -24,6 +24,7 @@ const authorEdit = {
   template: '<author-edit />'
 };
 
+/*@ngInject*/
 export default function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider

@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class HeaderUserInfoCtrl {
 
   constructor($scope, LoginSvc) {

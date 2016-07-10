@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class BorrowAuthCtrl {
 
   constructor(LoginSvc) {

@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class SubjectDetailsCtrl {
 
   constructor($state, SubjectsSvc) {

@@ -7,6 +7,7 @@ const app = {
   }
 };
 
+/*@ngInject*/
 export default function routes($stateProvider) {
 
   $stateProvider

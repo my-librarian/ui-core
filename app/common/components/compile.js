@@ -1,3 +1,4 @@
+/*@ngInject*/
 const compile = ($compile) => ({
 
   link($scope, $elem, $attr) {

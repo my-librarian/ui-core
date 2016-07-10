@@ -1,3 +1,4 @@
+/*@ngInject*/
 export default class SubjectEditCtrl {
 
   constructor($state, SubjectsSvc) {
