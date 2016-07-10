@@ -15,7 +15,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel?sourceMap'
+        loaders: [
+          'ng-annotate',
+          'babel?sourceMap'
+        ]
       },
       {
         test: /\.html$/,
