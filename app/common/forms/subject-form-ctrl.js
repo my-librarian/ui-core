@@ -1,8 +1,8 @@
 export default class CreateSubjectCtrl {
 
-  onAddButtonClick() {
+  onSubmitButtonClick() {
 
-    this.onAdd({
+    this.onSubmit({
       subject: this.subject,
       onSuccess: () => {
 
