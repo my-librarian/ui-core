@@ -1,10 +1,8 @@
 export default class CreateBookCtrl {
 
-  constructor(BooksSvc) {
+  constructor() {
 
     this.book = this.book || {};
-
-    this.BooksSvc = BooksSvc;
 
     this.defineDatepickerOptions();
     this.resetForm();
