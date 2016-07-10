@@ -6,6 +6,7 @@ import alerts from './alerts/alerts';
 import attribute from './attribute';
 import authorInput from './typeahead/author-input';
 import checkbox from './checkbox';
+import compile from './compile';
 import languageInput from './typeahead/language-input';
 import loader from './loader/loader';
 import radio from './radio';
@@ -16,6 +17,7 @@ export default angular.module('common.components', [])
   .directive(...attribute)
   .directive(...authorInput)
   .directive(...checkbox)
+  .directive(...compile)
   .directive(...languageInput)
   .directive(...loader)
   .directive(...subjectInput)

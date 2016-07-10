@@ -8,7 +8,7 @@ function alerts(AlertsSvc) {
 
     $scope.alerts = AlertsSvc.alerts;
 
-    // $scope.removeAlert = index => $scope.alerts.splice(index, 1);
+    $scope.removeAlert = index => $scope.alerts.splice(index, 1);
 
   }
 
