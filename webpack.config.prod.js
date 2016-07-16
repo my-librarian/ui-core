@@ -37,7 +37,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
-      template: './app/index.html'
+      template: './app/index.html',
+      favicon: './app/styles/images/favicon.ico'
     }),
     new ExtractTextPlugin('index.css')
   ]
