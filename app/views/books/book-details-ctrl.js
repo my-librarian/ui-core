@@ -73,6 +73,12 @@ export default class BookDetailsCtrl {
       });
   }
 
+  getBorrowHistory() {
+
+    this.BooksSvc.getBorrowHistory(this.$state.params.id)
+      .then(history => this.history = history);
+  }
+
   getSubjectLink(id) {
 
     return this.$state.href('subjects.details', {id});

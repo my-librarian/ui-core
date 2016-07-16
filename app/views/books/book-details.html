@@ -92,3 +92,24 @@
     There are no subjects listed for this book.
   </aside>
 </section>
+
+<section class="borrow-history">
+  <h3>Borrow History</h3>
+  <button ng-click="vm.getBorrowHistory()" ng-if="!vm.history.length">Click to load borrow history</button>
+  <table ng-if="vm.history.length">
+    <tr>
+      <th>Borrowed By</th>
+      <th>Borrow Date</th>
+      <th>Issued By</th>
+      <th>Received By</th>
+      <th>Received Date</th>
+    </tr>
+    <tr ng-repeat="history in vm.history">
+      <td>{{::history.borrowerName}}</td>
+      <td>{{::history.borrowdate}}</td>
+      <td>{{::history.issuerName}}</td>
+      <td>{{::history.receiverName}}</td>
+      <td>{{::history.returndate}}</td>
+    </tr>
+  </table>
+</section>
