@@ -11,36 +11,6 @@ export default class BookDetailsCtrl {
     this.getBook();
   }
 
-  static getCondition(condition) {
-
-    return {
-      good: 'Good',
-      damaged: 'Damaged',
-      tbr: 'To be replaced'
-    }[condition.toLowerCase()];
-
-  }
-
-  static getBinding(cover) {
-
-    return {
-      paper: 'Paper Binding',
-      hard: 'Hard Binding'
-    }[cover.toLowerCase()];
-
-  }
-
-  static getSource(source) {
-
-    return {
-      cl: 'Central Library',
-      dc: 'Donated',
-      cc: 'Complemented',
-      ot: 'Other'
-    }[source.toLowerCase()];
-
-  }
-
   borrowBook() {
 
     this.ModalSvc.openBorrowModal(this.details.title)
@@ -60,17 +30,7 @@ export default class BookDetailsCtrl {
   getBook() {
 
     this.BooksSvc.getBook(this.$state.params.id)
-      .then(details => {
-
-        details.binding = BookDetailsCtrl.getBinding(details.binding);
-        details.condition = BookDetailsCtrl.getCondition(details.condition);
-        details.source = BookDetailsCtrl.getSource(details.source);
-
-        details.description = details.description.replace('{br}', '\n');
-
-        this.details = details;
-
-      });
+      .then(details => this.details = details);
   }
 
   getBorrowHistory() {
