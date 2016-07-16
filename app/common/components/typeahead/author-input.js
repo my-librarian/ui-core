@@ -1,20 +1,25 @@
 import template from './input.html';
+import controller from './input-ctrl';
 
 /*@ngInject*/
 function authorInput(AuthorsSvc) {
 
-  function link($scope) {
+  function link($scope, $elem, $attr, vm) {
 
     AuthorsSvc.getAuthors()
-      .then(authors => $scope.items = authors);
+      .then(authors => vm.items = authors);
   }
 
   return {
+    bindToController: true,
+    controller,
+    controllerAs: 'vm',
     link,
     restrict: 'E',
     template,
     scope: {
-      model: '='
+      model: '=',
+      exists: '='
     }
   };
 }

@@ -1,15 +1,19 @@
 import template from './input.html';
+import controller from './input-ctrl';
 
 /*@ngInject*/
 function languageInput(LanguageSvc) {
 
-  function link($scope) {
+  function link($scope, $elem, $attr, vm) {
 
     LanguageSvc.getLanguages()
-      .then(languages => $scope.items = languages);
+      .then(languages => vm.items = languages);
   }
 
   return {
+    bindToController: true,
+    controller,
+    controllerAs: 'vm',
     link,
     restrict: 'E',
     template,

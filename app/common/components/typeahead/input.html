@@ -1,8 +1,10 @@
 <input
   type="text"
   class="txt"
-  ng-model="model"
+  ng-model="vm.model"
   placeholder="Type to search or add new"
   ng-required="true"
-  uib-typeahead="item.name for item in items | filter: {name: $viewValue}"
+  uib-typeahead="item.name for item in vm.items | filter: {name: $viewValue}"
+  typeahead-on-select="vm.onChange()"
+  ng-change="vm.onChange()"
 >
