@@ -10,8 +10,8 @@ export default class ReturnAuthCtrl {
 
     const noSession = 0;
 
-    this.LoginSvc.loginUser(this.iDeptNo, btoa(this.iPass), noSession)
-      .then(() => this.onSuccess({deptNo: this.iDeptNo}))
+    this.LoginSvc.loginUser(this.rDeptNo, btoa(this.rPass), noSession)
+      .then(() => this.onSuccess({deptNo: this.rDeptNo}))
       .catch(() => this.error = 'Invalid issuer id or password');
   }
 }

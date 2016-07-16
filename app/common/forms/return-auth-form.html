@@ -1,12 +1,12 @@
 <form name="vm.returnAuthForm" ng-submit="vm.authorizeUser()" novalidate>
   <section class="fieldset">
     <label class="big">
-      <span class="label">Issuer Id</span>
-      <input type="text" ng-model="vm.iDeptNo" ng-required="true" autofocus placeholder="Enter id">
+      <span class="label">Receiver Id</span>
+      <input type="text" ng-model="vm.rDeptNo" ng-required="true" autofocus placeholder="Enter id">
     </label>
     <label class="big">
-      <span class="label">Issuer Password</span>
-      <input type="password" ng-model="vm.iPass" ng-required="true" placeholder="Enter password">
+      <span class="label">Receiver Password</span>
+      <input type="password" ng-model="vm.rPass" ng-required="true" placeholder="Enter password">
     </label>
   </section>
   <section class="errors" ng-if="vm.error">
