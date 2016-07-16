@@ -8,6 +8,10 @@
       <span class="label">Receiver Password</span>
       <input type="password" ng-model="vm.rPass" ng-required="true" placeholder="Enter password">
     </label>
+    <label class="big">
+      <span class="label">Penalty</span>
+      <input type="text" ng-model="vm.penalty" placeholder="Enter amount" ng-pattern="/^\d*(\.\d{1,2})?$/">
+    </label>
   </section>
   <section class="errors" ng-if="vm.error">
     {{vm.error}}
