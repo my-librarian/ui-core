@@ -6,6 +6,11 @@ export default class BooksSvc {
     this.$http = $http;
   }
 
+  static formatDate(date) {
+
+    return date && new Date(date);
+  }
+
   static getCondition(condition) {
 
     return {
@@ -98,8 +103,8 @@ export default class BooksSvc {
       .then(response => response.data)
       .then(response => response.map(row => ({
         ...row,
-        borrowdate: new Date(row.borrowdate),
-        returndate: new Date(row.returndate)
+        borrowdate: BooksSvc.formatDate(row.borrowdate),
+        returndate: BooksSvc.formatDate(row.returndate)
       })));
   }
 
