@@ -1,10 +1,11 @@
 /*@ngInject*/
 export default class BooksSvc {
 
-  constructor(AlertsSvc, $http) {
+  constructor(AlertsSvc, $http, $q) {
 
     this.AlertsSvc = AlertsSvc;
     this.$http = $http;
+    this.$q = $q;
   }
 
   static formatDate(date) {
@@ -66,12 +67,21 @@ export default class BooksSvc {
     return this.$http
       .post('/api/book', book)
       .then(response => response.data)
-      .then(response => this.AlertsSvc.addAlert(`Successfully added book. Click <a ui-sref="books.details({id: ${response.id}})">here</a> to open`));
+      .then(response => this.AlertsSvc.addAlert(`Successfully added book. Click <a ui-sref="books.details({id: ${response.id}})">here</a> to open`))
+      .catch(response => {
+        this.AlertsSvc.addAlert(`Failed to create book. ${response.message}`, 'error');
+        this.$q.reject(response);
+      });
   }
 
   deleteBook(id) {
 
-    return this.$http.delete(`/api/book/${id}`);
+    return this.$http.delete(`/api/book/${id}`)
+      .then(() => this.AlertsSvc.addAlert('Successfully deleted book'))
+      .catch(response => {
+        this.AlertsSvc.addAlert(`Failed to delete book. ${response.message}`, 'error');
+        this.$q.reject(response);
+      });
   }
 
   getBook(bookId) {
