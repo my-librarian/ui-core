@@ -117,7 +117,15 @@ export default class BooksSvc {
         ...row,
         borrowdate: BooksSvc.formatDate(row.borrowdate),
         returndate: BooksSvc.formatDate(row.returndate)
-      })));
+      })))
+      .then(response => {
+
+        if (!response.length) {
+          this.AlertsSvc.addAlert('Book does not have a borrow history', 'warning');
+        }
+
+        return response;
+      });
   }
 
   getBorrowedBooks() {
