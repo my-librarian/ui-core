@@ -1,11 +1,18 @@
 import './books.less';
 
-const books = {
-  restrict: 'E',
-  template: '<ui-view />'
-};
+/*@ngInject*/
+function books(TitleSvc) {
+
+  return {
+    link() {
+      TitleSvc.setTitle('Books');
+    },
+    restrict: 'E',
+    template: '<ui-view />'
+  };
+}
 
 export default [
   'books',
-  () => books
+  books
 ];

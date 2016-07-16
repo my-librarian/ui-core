@@ -1,11 +1,18 @@
 import './subjects.less';
 
-const subjects = {
-  restrict: 'E',
-  template: '<ui-view />'
-};
+/*@ngInject*/
+function subjects(TitleSvc) {
+
+  return {
+    link() {
+      TitleSvc.setTitle('Subjects');
+    },
+    restrict: 'E',
+    template: '<ui-view />'
+  };
+}
 
 export default [
   'subjects',
-  () => subjects
+  subjects
 ];
