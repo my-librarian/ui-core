@@ -97,9 +97,9 @@ export default class BookDetailsCtrl {
   returnBook() {
 
     this.ModalSvc.openReturnModal(this.details.title)
-      .then(([receiverid]) =>
+      .then(([receiverid, penalty]) =>
         this.BooksSvc
-          .returnBook(this.details.borrowid, receiverid)
+          .returnBook(this.details.borrowid, receiverid, penalty)
           .then(() => this.details.borrowid = null)
       );
   }

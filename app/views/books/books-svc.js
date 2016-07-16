@@ -51,7 +51,12 @@ export default class BooksSvc {
 
     return this.$http
       .get(`/api/borrow/${bookId}`)
-      .then(response => response.data);
+      .then(response => response.data)
+      .then(response => response.map(row => ({
+        ...row,
+        borrowdate: new Date(row.borrowdate),
+        returndate: new Date(row.returndate)
+      })));
   }
 
   getBooks() {
@@ -75,10 +80,10 @@ export default class BooksSvc {
       .then(response => response.data);
   }
 
-  returnBook(borrowid, receiverid) {
+  returnBook(borrowid, receiverid, penalty) {
 
     return this.$http
-      .put(`/api/borrow/${borrowid}/${receiverid}`)
+      .put(`/api/borrow/${borrowid}/${receiverid}`, {penalty})
       .then(response => response.data);
   }
 }
