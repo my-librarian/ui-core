@@ -1,8 +1,9 @@
 /*@ngInject*/
 export default class SubjectsSvc {
 
-  constructor($http) {
+  constructor(AlertsSvc, $http) {
 
+    this.AlertsSvc = AlertsSvc;
     this.$http = $http;
   }
 
@@ -10,7 +11,8 @@ export default class SubjectsSvc {
 
     return this.$http
       .post('/api/subject', {subject})
-      .then(response => response.data);
+      .then(response => response.data)
+      .then(response => this.AlertsSvc.addAlert(`Successfully added subject. Click <a ui-sref="subjects.details({id: ${response.id}})">here</a> to open`));
   }
   
   deleteSubject(id) {

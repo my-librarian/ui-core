@@ -1,8 +1,9 @@
 /*@ngInject*/
 export default class AuthorsSvc {
 
-  constructor($http) {
+  constructor(AlertsSvc, $http) {
 
+    this.AlertsSvc = AlertsSvc;
     this.$http = $http;
   }
 
@@ -10,7 +11,8 @@ export default class AuthorsSvc {
 
     return this.$http
       .post('/api/author', {author})
-      .then(response => response.data);
+      .then(response => response.data)
+      .then(response => this.AlertsSvc.addAlert(`Successfully added author. Click <a ui-sref="authors.details({id: ${response.id}})">here</a> to open`));
   }
 
   deleteAuthor(id) {

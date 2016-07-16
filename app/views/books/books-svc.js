@@ -1,8 +1,9 @@
 /*@ngInject*/
 export default class BooksSvc {
 
-  constructor($http) {
+  constructor(AlertsSvc, $http) {
 
+    this.AlertsSvc = AlertsSvc;
     this.$http = $http;
   }
 
@@ -64,7 +65,8 @@ export default class BooksSvc {
 
     return this.$http
       .post('/api/book', book)
-      .then(response => response.data);
+      .then(response => response.data)
+      .then(response => this.AlertsSvc.addAlert(`Successfully added book. Click <a ui-sref="books.details({id: ${response.id}})">here</a> to open`));
   }
 
   deleteBook(id) {

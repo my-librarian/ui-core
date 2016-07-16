@@ -10,7 +10,6 @@ export default class CreateAuthorCtrl {
   createAuthor(author, done) {
 
     this.AuthorsSvc.createAuthor(author)
-      .then(response => this.AlertsSvc.addAlert(`Successfully added author. Click <a ui-sref="authors.details({id: ${response.id}})">here</a> to open`))
       .then(done);
   }
 }
