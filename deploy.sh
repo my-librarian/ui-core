@@ -13,6 +13,17 @@ file_deploy () {
 os_deploy() {
   npm run build
   cd dist
+  git clone https://github.com/my-librarian/server-core.git
+  cd server-core
+  echo env=openshift > lib/deploy.ini
+  mkdir -p api
+  mv handlers api/
+  mv lib api/
+  mv index.php api/
+  mv .htaccess api/
+  cd ..
+  mv server-core/api api
+  rm -rf server-core
   git init
   echo "$TRAVIS_TAG" > version.txt
   git config --global user.email "vipranarayan14@gmail.com"
