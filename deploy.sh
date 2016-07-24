@@ -15,6 +15,8 @@ os_deploy() {
   cd dist
   git clone https://github.com/my-librarian/server-core.git
   cd server-core
+  lastRelease=$(git describe --tags --abbrev=0)
+  git checkout ${lastRelease}
   echo env=openshift > lib/deploy.ini
   mkdir -p api
   mv handlers api/
