@@ -27,7 +27,7 @@ os_deploy() {
   mv server-core/api api
   rm -rf server-core
   git init
-  echo "api-version=$lastRelease\nui-version=$TRAVIS_TAG" > version.txt
+  echo "api-version=$lastRelease, ui-version=$TRAVIS_TAG" > version.txt
   git config --global user.email "vipranarayan14@gmail.com"
   git config --global user.name "Travis CI"
   git add --all
