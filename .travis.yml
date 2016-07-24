@@ -5,17 +5,11 @@ env:
   - secure: NONgrQ6V7m9js1Hxc3bCr9lTlrwiQ+bmyfiVOEtkIL+2u3MSv8Yg4Eb46fVd6gGzt03B6AkXszV/vTPejiK1ma/ARBf8ODcXW8NFB4R8fNIKFdWDx7UL+mwvzlOxz/+bHoUTYzInnJczstM2PoKOn1WhOPg7RFnFD8K2RfC+2V1QxTlgEWCR2JQoCF53X3Ibgvod5h7d0lAhdp5JoQ5sXYSIne9Orj0C+0ZJCKWvLL+7YUJa94QdJ9I8uYv3P0sVhIRRK6vy/HjsQA+w5up5DT9+5snebH3gNFB5x/V2hQ2uhxItFppR8SdEU3a668cEVYZEhzqsDpVhzg6rasNc60TVOYjC/zB8Agi4/SJ4tgf1z7grnneihssTL6Rk4fj1NHaTayMpdftpzK6d+Q2c8jkoqn/x/WymITJTbO5HXVPCAsYoQptyTgzoUX9M5ioC8DREaF+7/IhYKbBN9TGjkK2a5cMlWQ0Mqxu4k+V+GtEhvusH0fj/LqD4SOcsj2mbSe4YHNP/vhYdqHt2/ss/1Eif6hcSfzwOc+fQU5lm8xIz6/Fp6rBi5C7+lPTB+puDOpY3Cz3CP6pSbyzK7pd0+owl0SEUaUlvoWcyVNVCtBAkhKJPl5Mt055Es4U/bNYUZVOs4Rs+Vk55w+x+jbR5wPr6yixh+08LTZOVfD5jQXA=
 language: node_js
 node_js:
-- stable
-after_success: sh deploy.sh
+  - stable
+after_success:
+  - . deploy.sh ; file_deploy
 before_deploy:
-  - npm run build
-  - cd dist
-  - git init
-  - echo "$TRAVIS_TAG" >> version.txt
-  - git config --global user.email "vipranarayan14@gmail.com"
-  - git config --global user.name "Travis CI"
-  - git add --all
-  - git commit -am "Deploy version $TRAVIS_TAG"
+  - . deploy.sh ; os_deploy
 deploy:
   provider: openshift
   user: vipranarayan14@gmail.com
@@ -24,4 +18,5 @@ deploy:
   app: librarian
   domain: rkmvc
   on:
+    tags: true
     repo: my-librarian/ui-core
