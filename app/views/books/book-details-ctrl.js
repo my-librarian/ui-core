@@ -21,6 +21,26 @@ export default class BookDetailsCtrl {
       );
   }
 
+  canBorrow() {
+
+    return this.LoginSvc.userLevel.isUser && !this.isBorrowed();
+  }
+
+  canEdit() {
+
+    return this.LoginSvc.userLevel.isModerator && !this.isBorrowed();
+  }
+
+  canReturn() {
+
+    return this.LoginSvc.userLevel.isUser && this.isBorrowed() && this.details.borrowedByCurrentUser;
+  }
+
+  canViewHistory() {
+
+    return this.LoginSvc.userLevel.isModerator;
+  }
+
   deleteBook() {
 
     this.BooksSvc.deleteBook(this.details.bookid)
@@ -28,6 +48,8 @@ export default class BookDetailsCtrl {
   }
 
   getBook() {
+
+    this.details = {};
 
     this.BooksSvc.getBook(this.$state.params.id)
       .then(details => this.details = details);
@@ -42,6 +64,10 @@ export default class BookDetailsCtrl {
   getSubjectLink(id) {
 
     return this.$state.href('subjects.details', {id});
+  }
+
+  isBorrowed() {
+    return this.details.borrowid;
   }
 
   issueBook() {

@@ -1,14 +1,21 @@
 /*@ngInject*/
 export default class SubjectDetailsCtrl {
 
-  constructor($state, SubjectsSvc) {
+  constructor($state, LoginSvc, SubjectsSvc) {
 
     this.$state = $state;
+    this.LoginSvc = LoginSvc;
     this.SubjectsSvc = SubjectsSvc;
 
     this.getSubject();
   }
-  
+
+  canEdit() {
+
+    return this.LoginSvc.userLevel.isModerator;
+  }
+
+
   getSubject() {
     
     this.SubjectsSvc.getSubject(this.$state.params.id)

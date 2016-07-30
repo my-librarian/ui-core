@@ -1,11 +1,11 @@
 <h2>
   <i class="icon book"></i>
   {{vm.details.title}}
-  <button class="issue" ng-click="vm.returnBook()" ng-if="vm.details.borrowid">Return</button>
-  <button class="borrow" ng-click="vm.borrowBook()" ng-if="!vm.details.borrowid">Borrow</button>
-  <button class="issue" ng-click="vm.issueBook()" ng-if="!vm.details.borrowid">Issue</button>
-  <i class="icon delete" ng-click="vm.deleteBook()"></i>
-  <i class="icon edit" ui-sref="books.edit({id: vm.details.bookid})" title="Edit Book"></i>
+  <button class="issue" ng-click="vm.returnBook()" ng-if="vm.canReturn()">Return</button>
+  <button class="borrow" ng-click="vm.borrowBook()" ng-if="vm.canBorrow()">Borrow</button>
+  <button class="issue" ng-click="vm.issueBook()" ng-if="vm.canEdit()">Issue</button>
+  <i class="icon delete" ng-click="vm.deleteBook()" title="Delete book" ng-if="vm.canEdit()"></i>
+  <i class="icon edit" ui-sref="books.edit({id: vm.details.bookid})" title="Edit book" ng-if="vm.canEdit()"></i>
 </h2>
 
 <section class="attributes">
@@ -93,7 +93,7 @@
   </aside>
 </section>
 
-<section class="borrow-history">
+<section class="borrow-history" ng-if="vm.canViewHistory()">
   <h3>Borrow History</h3>
   <button ng-click="vm.getBorrowHistory()" ng-if="!vm.history.length">Click to load borrow history</button>
   <table ng-if="vm.history.length">

@@ -1,12 +1,18 @@
 /*@ngInject*/
 export default class AuthorDetailsCtrl {
 
-  constructor($state, AuthorsSvc) {
+  constructor($state, AuthorsSvc, LoginSvc) {
 
     this.$state = $state;
     this.AuthorsSvc = AuthorsSvc;
+    this.LoginSvc = LoginSvc;
 
     this.getAuthor();
+  }
+
+  canEdit() {
+
+    return this.LoginSvc.userLevel.isModerator;
   }
 
   getAuthor() {

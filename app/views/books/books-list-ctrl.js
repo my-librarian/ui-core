@@ -1,12 +1,18 @@
 /*@ngInject*/
 export default class BooksListCtrl {
 
-  constructor(BooksSvc) {
+  constructor(BooksSvc, LoginSvc) {
 
     this.BooksSvc = BooksSvc;
+    this.LoginSvc = LoginSvc;
 
     this.getBooks();
     this.clearFilters();
+  }
+
+  canAdd() {
+
+    return this.LoginSvc.userLevel.isModerator;
   }
 
   clearFilters() {

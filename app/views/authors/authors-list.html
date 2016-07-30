@@ -1,7 +1,7 @@
 <h2>
   <i class="icon author"></i>
   Authors
-  <i class="icon add" ui-sref="admin.createAuthor" title="Add New Author"></i>
+  <i class="icon add" ui-sref="admin.createAuthor" title="Add New Author" ng-if="vm.canAdd()"></i>
 </h2>
 
 <section ng-repeat="(alphabet, authors) in vm.authors">

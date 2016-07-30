@@ -55,7 +55,7 @@ export default class LoginCtrl {
 
   checkLogin() {
 
-    if (this.LoginSvc.user.details.userid) {
+    if (this.LoginSvc.userLevel.isUser) {
       this.goToHome();
     }
   }

@@ -1,10 +1,9 @@
 /*@ngInject*/
 export default class LoginSvc {
 
-  constructor($http, $rootScope) {
+  constructor($http) {
 
     this.$http = $http;
-    this.$rootScope = $rootScope;
 
     this.user = {};
   }
@@ -34,4 +33,32 @@ export default class LoginSvc {
       .put('/api/session/stop')
       .then(() => this.user.details = {});
   }
+
+  get userLevel() {
+
+    const self = this;
+
+    return {
+
+      get isAdmin() {
+
+        const adminLevel = 3;
+
+        return Number(self.user.details.level) === adminLevel;
+      },
+
+      get isModerator() {
+
+        const userLevel = 1;
+
+        return self.user.details.level > userLevel;
+      },
+
+      get isUser() {
+
+        return !!self.user.details.userid;
+      }
+    };
+  }
 }
+
