@@ -18,6 +18,6 @@ export default class AuthorEditCtrl {
   updateAuthor() {
 
     this.AuthorsSvc.updateAuthor(this.author)
-      .then(() => this.$state.go('authors.author', {id: this.author.authorid}));
+      .then(() => this.$state.go('authors.details', {id: this.author.authorid}));
   }
 }
