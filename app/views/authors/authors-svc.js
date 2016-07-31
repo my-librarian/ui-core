@@ -43,4 +43,11 @@ export default class AuthorsSvc {
       .get(`/api/author/${authorId}`)
       .then(response => response.data);
   }
+
+  updateAuthor(author) {
+
+    return this.$http
+      .put('/api/author', author)
+      .then(response => response.data);
+  }
 }
