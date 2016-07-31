@@ -14,8 +14,12 @@
     <input type="text" search-input autofocus ng-model="vm.search.title">
 
     <div class="list">
-      <book ng-repeat="book in vm.books | filter: vm.search" book="book"></book>
+      <book ng-repeat="book in books = (vm.books | filter: vm.search)" book="book"></book>
     </div>
+
+    <aside ng-if="!books.length">
+      There are no books matching the filters
+    </aside>
   </section>
 
 </main>
