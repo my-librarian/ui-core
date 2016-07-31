@@ -1,10 +1,14 @@
 /*@ngInject*/
 export default class BooksListCtrl {
 
-  constructor(BooksSvc, LoginSvc) {
+  constructor($stateParams, BooksSvc, LoginSvc) {
 
     this.BooksSvc = BooksSvc;
     this.LoginSvc = LoginSvc;
+
+    this.search = {
+      title: $stateParams.q
+    };
 
     this.getBooks();
     this.clearFilters();

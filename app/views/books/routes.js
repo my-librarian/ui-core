@@ -8,7 +8,7 @@ const books = {
 
 const booksList = {
   name: 'books.list',
-  url: '/list',
+  url: '/list?q',
   template: '<books-list />'
 };
 
