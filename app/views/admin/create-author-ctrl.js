@@ -7,9 +7,9 @@ export default class CreateAuthorCtrl {
     this.AuthorsSvc = AuthorsSvc;
   }
 
-  createAuthor(author, done) {
+  createAuthor({name}, done) {
 
-    this.AuthorsSvc.createAuthor(author)
+    this.AuthorsSvc.createAuthor(name)
       .then(done);
   }
 }
