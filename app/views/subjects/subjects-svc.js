@@ -43,4 +43,11 @@ export default class SubjectsSvc {
       .get(`/api/subject/${subjectId}`)
       .then(response => response.data);
   }
+
+  updateSubject(subject) {
+
+    return this.$http
+      .put('/api/subject', subject)
+      .then(response => response.data);
+  }
 }
