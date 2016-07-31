@@ -18,6 +18,6 @@ export default class SubjectEditCtrl {
   updateSubject() {
 
     this.SubjectsSvc.updateSubject(this.subject)
-      .then(() => this.$state.go('subjects.subject', {id: this.subject.subjectid}));
+      .then(() => this.$state.go('subjects.details', {id: this.subject.subjectid}));
   }
 }
