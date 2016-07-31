@@ -4,7 +4,8 @@ const book = {
   restrict: 'E',
   template,
   scope: {
-    book: '='
+    book: '=',
+    showDetails: '@'
   }
 };
 

@@ -21,8 +21,27 @@ books-list {
           border-bottom: 1px solid @grid-divider;
 
           a {
-            display: block;
+            display: flex;
+            align-items: flex-end;
             padding: 10px;
+          }
+
+          .details {
+            display: flex;
+            padding: 0 10px 10px 40px;
+            font-size: .8em;
+
+            attribute {
+              flex-basis: 50%;
+
+              .label {
+                color: darken(@grid-divider, 10%);
+              }
+              
+              .value {
+                color: @surface-secondary-foreground;
+              }
+            }
           }
         }
       }

@@ -2,3 +2,13 @@
   <i class="icon book"></i>
   {{book.title}}
 </a>
+<div class="details" ng-if="showDetails">
+  <attribute
+    label="Accession No."
+    value="{{book.accessno}}"
+  ></attribute>
+  <attribute
+    label="Rack No."
+    value="{{book.rackno}}"
+  ></attribute>
+</div>
