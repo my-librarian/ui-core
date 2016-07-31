@@ -8,7 +8,7 @@ function headerBanner(LoginSvc) {
   return headerBanner = {
     link($scope) {
 
-      $scope.isAdmin = () => LoginSvc.userLevel.isAdmin;
+      $scope.isModerator = () => LoginSvc.userLevel.isModerator;
     },
     restrict: 'E',
     template

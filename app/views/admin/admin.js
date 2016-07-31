@@ -9,7 +9,7 @@ function admin($state, LoginSvc, TitleSvc) {
     link() {
       TitleSvc.setTitle('Admin');
 
-      if(!LoginSvc.userLevel.isAdmin) {
+      if(!LoginSvc.userLevel.isModerator) {
         $state.go('login');
       }
     },
