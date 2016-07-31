@@ -6,9 +6,9 @@ export default class CreateSubjectCtrl {
     this.SubjectsSvc = SubjectsSvc;
   }
 
-  createSubject(subject, done) {
+  createSubject({name}, done) {
 
-    this.SubjectsSvc.createSubject(subject)
+    this.SubjectsSvc.createSubject(name)
       .then(done);
   }
 }
