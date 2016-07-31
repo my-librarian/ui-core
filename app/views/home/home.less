@@ -1,0 +1,40 @@
+@import "../../styles/less/mixins";
+@import "../../styles/less/variables";
+
+home {
+  display: block;
+  .center-it();
+
+  blockquote {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 700px;
+
+    .quote {
+      font-size: 5em;
+      text-align: left;
+      line-height: .25;
+      margin-top: 50px;
+    }
+
+    .by {
+      text-align: right;
+      margin-top: 25px;
+      font-size: .75em;
+      font-style: italic;
+    }
+  }
+
+  .search-bar {
+    &:extend(.card--1);
+    border-radius: 30px;
+    margin: 50px auto;
+    max-width: 350px;
+    display: flex;
+
+    input {
+      padding: 10px 10px 10px 15px;
+      flex-grow: 1;
+    }
+  }
+}

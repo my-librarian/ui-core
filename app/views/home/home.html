@@ -1,1 +1,12 @@
-Welcome to Librarian!
+<blockquote>
+  <div class="quote">&ldquo;</div>
+  ... a mind needs books as a sword needs a whetstone, if it is to keep its edge
+  <div class="by">&mdash; George R R Martin</div>
+</blockquote>
+
+<form name="vm.searchBar" class="search-bar" ng-submit="vm.forwardToBooksList()" novalidate>
+  <input type="text" placeholder="Start searching for a book ..." ng-model="vm.query" ng-required="true">
+  <button type="submit" ng-disabled="vm.searchBar.$invalid">
+    <i class="icon search"></i>
+  </button>
+</form>
