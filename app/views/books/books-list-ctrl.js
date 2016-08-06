@@ -35,7 +35,8 @@ export default class BooksListCtrl {
   clearFilters() {
 
     this.BooksSvc.getFilters()
-      .then(filters => this.filters = filters);
+      .then(filters => this.filters = filters)
+      .then(() => this.onFiltersChange());
   }
 
   getBooks() {
