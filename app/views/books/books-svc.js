@@ -10,7 +10,7 @@ export default class BooksSvc {
 
   static formatDate(date) {
 
-    return date && new Date(date);
+    return date && new Date(`${date} UTC`);
   }
 
   static getCondition(condition) {
