@@ -1,6 +1,6 @@
 {
   "name": "new-librarian",
-  "version": "5.20.1",
+  "version": "5.20.2",
   "description": "New Librarian",
   "dependencies": {
     "angular": "^1.5.5",
