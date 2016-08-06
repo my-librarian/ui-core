@@ -149,6 +149,10 @@ export default class BooksSvc {
 
     return this.$http
       .put(`/api/book/${book.bookid}`, book)
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(response => {
+        this.AlertsSvc.addAlert(`Failed to update book. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
+      });
   }
 }
