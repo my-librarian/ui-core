@@ -27,6 +27,6 @@ export default class BookEditCtrl {
   updateBook() {
 
     this.BooksSvc.updateBook(this.book)
-      .then(() => this.$state.go('books.book', {id: this.book.bookid}));
+      .then(() => this.$state.go('books.details', {id: this.book.bookid}));
   }
 }

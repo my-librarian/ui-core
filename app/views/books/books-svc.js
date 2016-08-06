@@ -144,4 +144,11 @@ export default class BooksSvc {
       .put(`/api/borrow/${borrowid}/${receiverid}`, {penalty})
       .then(response => response.data);
   }
+
+  updateBook(book) {
+
+    return this.$http
+      .put(`/api/book/${book.bookid}`, book)
+      .then(response => response.data);
+  }
 }
