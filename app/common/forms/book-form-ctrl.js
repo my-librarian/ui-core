@@ -64,9 +64,9 @@ export default class CreateBookCtrl {
 
   resetForm() {
 
-    this.book.condition = 'good';
-    this.book.source = 'cl';
-    this.book.binding = 'paper';
+    this.book.condition = 'GOOD';
+    this.book.source = 'CL';
+    this.book.binding = 'PAPER';
     this.book.original = true;
     this.book.authors = [{}];
     this.book.subjects = [{}];
