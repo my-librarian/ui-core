@@ -15,8 +15,8 @@ export default class AuthorsSvc {
       .then(response => response.data)
       .then(response => this.AlertsSvc.addAlert(`Successfully added author. Click <a ui-sref="authors.details({id: ${response.id}})">here</a> to open`))
       .catch(response => {
-        this.AlertsSvc.addAlert(`Failed to create author. ${response.message}`, 'error');
-        this.$q.reject(response);
+        this.AlertsSvc.addAlert(`Failed to create author. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
       });
   }
 
@@ -25,8 +25,8 @@ export default class AuthorsSvc {
     return this.$http.delete(`/api/author/${id}`)
       .then(() => this.AlertsSvc.addAlert('Successfully deleted author'))
       .catch(response => {
-        this.AlertsSvc.addAlert(`Failed to delete author. ${response.message}`, 'error');
-        this.$q.reject(response);
+        this.AlertsSvc.addAlert(`Failed to delete author. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
       });
   }
 
@@ -48,6 +48,10 @@ export default class AuthorsSvc {
 
     return this.$http
       .put('/api/author', author)
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(response => {
+        this.AlertsSvc.addAlert(`Failed to update author. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
+      });
   }
 }

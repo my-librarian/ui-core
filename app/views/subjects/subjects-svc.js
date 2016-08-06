@@ -15,8 +15,8 @@ export default class SubjectsSvc {
       .then(response => response.data)
       .then(response => this.AlertsSvc.addAlert(`Successfully added subject. Click <a ui-sref="subjects.details({id: ${response.id}})">here</a> to open`))
       .catch(response => {
-        this.AlertsSvc.addAlert(`Failed to create subject. ${response.message}`, 'error');
-        this.$q.reject(response);
+        this.AlertsSvc.addAlert(`Failed to create subject. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
       });
   }
   
@@ -25,8 +25,8 @@ export default class SubjectsSvc {
     return this.$http.delete(`/api/subject/${id}`)
       .then(() => this.AlertsSvc.addAlert('Successfully deleted subject'))
       .catch(response => {
-        this.AlertsSvc.addAlert(`Failed to delete subject. ${response.message}`, 'error');
-        this.$q.reject(response);
+        this.AlertsSvc.addAlert(`Failed to delete subject. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
       });
   }
 
@@ -48,6 +48,10 @@ export default class SubjectsSvc {
 
     return this.$http
       .put('/api/subject', subject)
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(response => {
+        this.AlertsSvc.addAlert(`Failed to update subject. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
+      });
   }
 }

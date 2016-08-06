@@ -69,8 +69,8 @@ export default class BooksSvc {
       .then(response => response.data)
       .then(response => this.AlertsSvc.addAlert(`Successfully added book. Click <a ui-sref="books.details({id: ${response.id}})">here</a> to open`))
       .catch(response => {
-        this.AlertsSvc.addAlert(`Failed to create book. ${response.message}`, 'error');
-        this.$q.reject(response);
+        this.AlertsSvc.addAlert(`Failed to create book. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
       });
   }
 
@@ -79,8 +79,8 @@ export default class BooksSvc {
     return this.$http.delete(`/api/book/${id}`)
       .then(() => this.AlertsSvc.addAlert('Successfully deleted book'))
       .catch(response => {
-        this.AlertsSvc.addAlert(`Failed to delete book. ${response.message}`, 'error');
-        this.$q.reject(response);
+        this.AlertsSvc.addAlert(`Failed to delete book. ${response.data.message}`, 'error');
+        return this.$q.reject(response);
       });
   }
 
