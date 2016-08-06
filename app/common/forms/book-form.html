@@ -36,14 +36,14 @@
     <label class="subject big">
       <span class="label"><a ng-click="vm.addSubjectField()">Add Subject</a>Subject(s)</span>
       <span class="input" ng-repeat="subject in vm.book.subjects track by $index">
-        <subject-input model="subject.name"></subject-input>
+        <subject-input model="subject.name" exists="exists"></subject-input>
         <i class="icon close" ng-click="vm.removeSubjectField($index)" ng-if="!$first"></i>
       </span>
     </label>
     <label class="author big">
       <span class="label"><a ng-click="vm.addAuthorField()">Add Author</a>Author(s)</span>
       <span class="input" ng-repeat="author in vm.book.authors track by $index">
-        <author-input model="author.name"></author-input>
+        <author-input model="author.name" exists="exists"></author-input>
         <i class="icon close" ng-click="vm.removeAuthorField($index)" ng-if="!$first"></i>
       </span>
     </label>
