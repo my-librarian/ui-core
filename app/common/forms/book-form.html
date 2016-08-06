@@ -105,9 +105,24 @@
   </section>
   <ul class="errors"></ul>
   <section class="actions">
+    <a ui-sref="books.details({id: vm.book.bookid})" class="reset" ng-if="vm.update">Cancel</a>
     <button class="reset" type="reset" ng-if="!vm.update">Reset</button>
-    <button class="submit" type="reset" ng-click="vm.onSubmitButtonClick()" ng-disabled="vm.createBookForm.$invalid">
-      {{vm.update ? 'Update' : 'Add'}}
+    <button
+      class="submit"
+      ng-click="vm.onSubmitButtonClick()"
+      ng-disabled="vm.createBookForm.$invalid"
+      ng-if="!vm.update"
+      type="reset"
+    >
+      Add
+    </button>
+    <button
+      class="submit"
+      ng-click="vm.onSubmitButtonClick()"
+      ng-if="vm.update"
+      ng-disabled="vm.createBookForm.$invalid"
+    >
+      Update
     </button>
   </section>
 </form>
