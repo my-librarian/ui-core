@@ -52,7 +52,16 @@ export default class BookDetailsCtrl {
     this.details = {};
 
     this.BooksSvc.getBook(this.$state.params.id)
-      .then(details => this.details = details);
+      .then(details => {
+
+        details.binding = this.BooksSvc.getBinding(details.binding);
+        details.condition = this.BooksSvc.getCondition(details.condition);
+        details.source = this.BooksSvc.getSource(details.source);
+
+        details.description = details.description.replace(/\{br\}/g, '\n');
+
+        this.details = details;
+      });
   }
 
   getBorrowHistory() {

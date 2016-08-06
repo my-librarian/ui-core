@@ -13,7 +13,7 @@ export default class BooksSvc {
     return date && new Date(`${date} UTC`);
   }
 
-  static getCondition(condition) {
+  getCondition(condition) {
 
     return {
       good: 'Good',
@@ -22,7 +22,7 @@ export default class BooksSvc {
     }[condition.toLowerCase()];
   }
 
-  static getBinding(cover) {
+  getBinding(cover) {
 
     return {
       paper: 'Paper Binding',
@@ -30,7 +30,7 @@ export default class BooksSvc {
     }[cover.toLowerCase()];
   }
 
-  static getSource(source) {
+  getSource(source) {
 
     return {
       cl: 'Central Library',
@@ -91,11 +91,7 @@ export default class BooksSvc {
       .then(response => response.data)
       .then(response => {
 
-        response.binding = BooksSvc.getBinding(response.binding);
-        response.condition = BooksSvc.getCondition(response.condition);
-        response.source = BooksSvc.getSource(response.source);
-
-        response.description = response.description.replace('{br}', '\n');
+        response.original = !!response.original;
 
         return response;
       });
