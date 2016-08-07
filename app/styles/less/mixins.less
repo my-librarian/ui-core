@@ -101,3 +101,15 @@
     background-color: @secondary;
   }
 }
+
+.count-bubble {
+  .count {
+    &:extend(.card--1);
+    background-color: @accent-color;
+    color: @card-background;
+    display: inline;
+    font-size: .75em;
+    margin-left: 10px;
+    padding: 0 10px;
+  }
+}

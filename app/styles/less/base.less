@@ -35,6 +35,16 @@ a {
 
 h2 {
   margin-bottom: 25px;
+  .count-bubble();
+
+  .title {
+    display: inline-flex;
+    align-items: center;
+
+    .count {
+      font-size: .72em;
+    }
+  }
 
   .to-right() {
     float: right;
@@ -64,6 +74,10 @@ h2 {
 
 h3 {
   color: @surface-secondary-foreground;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  .count-bubble();
 }
 
 .icon:extend(.material-icons) {
