@@ -8,7 +8,10 @@ export default class AuthorsListCtrl {
     this.authors = {};
 
     AuthorsSvc.getAuthors()
-      .then(authors => this.authors = $filter('alphabetic')(authors));
+      .then(authors => {
+        this.authorCount = authors.length;
+        this.authors = $filter('alphabetic')(authors);
+      });
   }
 
   canAdd() {

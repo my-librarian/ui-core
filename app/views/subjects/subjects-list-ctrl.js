@@ -8,7 +8,10 @@ export default class SubjectsListCtrl {
     this.subjects = {};
 
     SubjectsSvc.getSubjects()
-      .then(subjects => this.subjects = $filter('alphabetic')(subjects));
+      .then(subjects => {
+        this.subjectCount = subjects.length;
+        this.subjects = $filter('alphabetic')(subjects);
+      });
   }
 
   canAdd() {

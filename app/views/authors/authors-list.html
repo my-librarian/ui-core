@@ -1,6 +1,9 @@
 <h2>
   <i class="icon author"></i>
-  Authors
+  <span class="title">
+    Authors
+    <span class="count" ng-if="vm.authorCount">{{vm.authorCount}}</span>
+  </span>
   <i class="icon add" ui-sref="admin.createAuthor" title="Add New Author" ng-if="vm.canAdd()"></i>
 </h2>
 

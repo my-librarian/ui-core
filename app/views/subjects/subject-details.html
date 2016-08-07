@@ -6,7 +6,9 @@
 </h2>
 
 <section>
-  <h3>Books</h3>
+  <h3>Books
+    <span class="count" ng-if="vm.details.books.length">{{vm.details.books.length}}</span>
+  </h3>
   <book ng-repeat="book in vm.details.books" book="book"></book>
   <aside ng-if="!vm.details.books.length">
     There are no books listed under this subject.
@@ -14,9 +16,11 @@
 </section>
 
 <section>
-  <h3>Authors</h3>
+  <h3>Authors
+    <span class="count" ng-if="vm.details.authors.length">{{vm.details.authors.length}}</span>
+  </h3>
   <author ng-repeat="author in vm.details.authors" author="author"></author>
-  <aside ng-if="!vm.details.books.length">
+  <aside ng-if="!vm.details.authors.length">
     There are no subjects covered under this subject.
   </aside>
 </section>

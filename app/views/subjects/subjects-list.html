@@ -1,6 +1,8 @@
 <h2>
   <i class="icon subject"></i>
-  Subjects
+  <span class="title">
+    Subjects <span class="count">{{vm.subjectCount}}</span>
+  </span>
   <i class="icon add" ui-sref="admin.createSubject" title="Add New Subject" ng-if="vm.canAdd()"></i>
 </h2>
 
