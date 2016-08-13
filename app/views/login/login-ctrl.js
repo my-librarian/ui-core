@@ -39,7 +39,7 @@ export default class LoginCtrl {
         .then(() => {
           this.loginError = false;
           this.LoginSvc.startSession();
-          this.goToHome();
+          this.goToPreviousPage();
         })
         .catch(() => {
           this.loginError = true;
@@ -51,6 +51,13 @@ export default class LoginCtrl {
   goToHome() {
 
     this.$state.go('home');
+  }
+
+  goToPreviousPage() {
+
+    const {fromState, fromParams} = this.$state.params.from;
+
+    return fromState.name ? this.$state.go(fromState, fromParams) : this.goToHome();
   }
 
   checkLogin() {
