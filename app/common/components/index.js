@@ -6,6 +6,7 @@ import TitleSvc from './title-svc';
 import alerts from './alerts/alerts';
 import attribute from './attribute';
 import authorInput from './typeahead/author-input';
+import buttonGoToTop from './button-go-to-top';
 import checkbox from './checkbox';
 import compile from './compile';
 import languageInput from './typeahead/language-input';
@@ -18,6 +19,7 @@ export default angular.module('common.components', [])
   .directive(...alerts)
   .directive(...attribute)
   .directive(...authorInput)
+  .directive(...buttonGoToTop)
   .directive(...checkbox)
   .directive(...compile)
   .directive(...languageInput)

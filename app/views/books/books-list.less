@@ -6,8 +6,19 @@ books-list {
     display: flex;
 
     aside.books-filters {
-      flex: 0 0 200px;
+      @filters-width: 200px;
+      flex: 0 0 @filters-width;
       margin-right: 25px;
+
+      button-go-to-top button {
+        position: fixed;
+        bottom: 10px;
+        margin-left: @filters-width - 40px;
+
+        &:not(:disabled):hover {
+          position: fixed;
+        }
+      }
     }
 
     section.books-list {
@@ -37,7 +48,7 @@ books-list {
               .label {
                 color: darken(@grid-divider, 10%);
               }
-              
+
               .value {
                 color: @surface-secondary-foreground;
               }

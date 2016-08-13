@@ -1,0 +1,22 @@
+@import "../../styles/less/mixins";
+@import "../../styles/less/variables";
+
+button-go-to-top button {
+  @button-size: 40px;
+  .button-go-to-top() {
+    border-radius: @button-size/2;
+    background-color: @accent-color;
+    padding: 0;
+  }
+  .button();
+  .button-go-to-top();
+  width: @button-size;
+  height: @button-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:not(:disabled):hover {
+    .button-go-to-top();
+  }
+}
