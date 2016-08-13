@@ -1,4 +1,4 @@
-<section class="left">
+<form class="left" ng-submit="vm.loginUser()">
   <div class="content">
     <h2>Login</h2>
     <label>
@@ -13,10 +13,10 @@
       Username or password is wrong. Please try again.
     </div>
     <div class="actions">
-      <button ng-click="vm.loginUser()">Login</button>
+      <button type="submit">Login</button>
     </div>
   </div>
-</section>
+</form>
 <section class="center">
   OR
 </section>
