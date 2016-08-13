@@ -15,6 +15,8 @@ import radio from './radio';
 import title from './title';
 import subjectInput from './typeahead/subject-input';
 
+import './typeahead/input.less';
+
 export default angular.module('common.components', [])
   .directive(...alerts)
   .directive(...attribute)
