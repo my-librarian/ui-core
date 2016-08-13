@@ -1,4 +1,5 @@
 import angular from 'angular';
+import infiniteScroll from 'ng-infinite-scroll';
 import uiBootstrap from 'angular-ui-bootstrap';
 import uiRouter from 'angular-ui-router';
 
@@ -18,6 +19,7 @@ import './styles/css/material/material-icons.css';
 const appName = 'librarian';
 
 angular.module(appName, [
+  infiniteScroll,
   uiBootstrap,
   uiRouter,
   admin,
