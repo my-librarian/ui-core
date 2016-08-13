@@ -7,13 +7,24 @@
 <main>
 
   <aside class="books-filters">
-    <books-filters filters="vm.filters" on-change="vm.onFiltersChange()" on-clear-filters="vm.clearFilters()"></books-filters>
+    <books-filters
+      filters="vm.filters"
+      on-change="vm.onFiltersChange()"
+      on-clear-filters="vm.clearFilters()"></books-filters>
   </aside>
 
   <section class="books-list">
-    <input type="text" search-input autofocus ng-model="vm.query" placeholder="Search by title, accession no. and rack no.">
+    <input
+      type="text"
+      search-input
+      autofocus
+      ng-model="vm.query"
+      placeholder="Search by title, accession no. and rack no.">
 
-    <div class="list">
+    <div class="list"
+         infinite-scroll="vm.getMoreBooks()"
+         infinite-scroll-disabled="vm.allLoaded || vm.loading"
+         infinite-scroll-distance="1">
       <book ng-repeat="book in books = (vm.books | filter: vm.search)" book="book" show-details="true"></book>
     </div>
 

@@ -3,12 +3,13 @@ export default class BooksListCtrl {
 
   constructor($stateParams, BooksSvc, LoginSvc) {
 
+    this.loading = true;
+
     this.BooksSvc = BooksSvc;
     this.LoginSvc = LoginSvc;
 
     this.query = $stateParams.q;
 
-    this.getBooks();
     this.clearFilters();
 
     this.search = this.search.bind(this);
@@ -34,6 +35,8 @@ export default class BooksListCtrl {
 
   clearFilters() {
 
+    this.loading = true;
+
     this.BooksSvc.getFilters()
       .then(filters => this.filters = filters)
       .then(() => this.getBooks());
@@ -42,13 +45,38 @@ export default class BooksListCtrl {
   getBooks() {
 
     this.BooksSvc.getBooks()
-      .then(books => this.books = books);
+      .then(books => this.books = books)
+      .finally(() => this.loading = false);
+  }
+
+  getMoreBooks() {
+
+    const pageSize = 20;
+
+    this.loading = true;
+    this.filters.page += 1;
+
+    this.BooksSvc.applyFilters(this.filters)
+      .then(books => {
+
+        if (books.length < pageSize) {
+          this.allLoaded = true;
+        }
+
+        this.books = this.books.concat(books);
+      })
+      .finally(() => this.loading = false);
   }
 
   onFiltersChange() {
 
+    this.loading = true;
+    this.filters.page = 1;
+    this.allLoaded = false;
+
     this.BooksSvc.applyFilters(this.filters)
-      .then(books => this.books = books);
+      .then(books => this.books = books)
+      .finally(() => this.loading = false);
   }
 
   search(row) { // eslint-disable-line complexity
