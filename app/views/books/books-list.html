@@ -26,6 +26,10 @@
       ng-model-options="{debounce: 1000}"
     >
 
+    <aside ng-if="vm.booksCount">
+      {{vm.booksCount}} Found.
+    </aside>
+
     <div class="list"
          infinite-scroll="vm.getMoreBooks()"
          infinite-scroll-disabled="vm.allLoaded || vm.loading"
@@ -33,7 +37,7 @@
       <book ng-repeat="book in vm.books" book="book" show-details="true"></book>
     </div>
 
-    <aside ng-if="!vm.books.length">
+    <aside ng-if="!vm.booksCount">
       There are no books matching the filters
     </aside>
 

@@ -34,34 +34,38 @@ export default class BooksListCtrl {
 
   }
 
-  getMoreBooks() {
+  applyFilters() {
 
     const pageSize = 20;
-
     this.loading = true;
-    this.filters.page += 1;
 
     this.BooksSvc.applyFilters(this.filters)
-      .then(books => {
+      .then(({list, count}) => {
 
-        if (books.length < pageSize) {
+        if (list.length < pageSize) {
           this.allLoaded = true;
         }
 
-        this.books = this.books.concat(books);
+        this.booksCount = count;
+        this.books = this.books.concat(list);
       })
       .finally(() => this.loading = false);
   }
 
+  getMoreBooks() {
+
+    this.filters.page += 1;
+
+    this.applyFilters();
+  }
+
   onFiltersChange() {
 
-    this.loading = true;
     this.filters.page = 1;
     this.allLoaded = false;
+    this.books = [];
 
-    this.BooksSvc.applyFilters(this.filters)
-      .then(books => this.books = books)
-      .finally(() => this.loading = false);
+    this.applyFilters();
   }
 
   onSearchStringChange() {
@@ -75,6 +79,6 @@ export default class BooksListCtrl {
 
   extendFilters(params) {
 
-    this.filters.searchString = params.q;
+    this.filters.searchString = params.q || '';
   }
 }
