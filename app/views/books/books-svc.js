@@ -97,13 +97,6 @@ export default class BooksSvc {
       });
   }
 
-  getBooks() {
-
-    return this.$http
-      .get('/api/books/list')
-      .then(response => response.data);
-  }
-
   getBorrowHistory(bookId) {
 
     return this.$http

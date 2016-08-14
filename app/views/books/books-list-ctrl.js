@@ -3,29 +3,10 @@ export default class BooksListCtrl {
 
   constructor($stateParams, BooksSvc, LoginSvc) {
 
-    this.loading = true;
-
     this.BooksSvc = BooksSvc;
     this.LoginSvc = LoginSvc;
 
-    this.query = $stateParams.q;
-
-    this.clearFilters();
-
-    this.search = this.search.bind(this);
-  }
-
-  static matchAccessionNumber(accessno, query) {
-
-    return accessno.toString().indexOf(query) !== -1;
-  }
-
-  static matchRackNumber(rackno, query) {
-
-    query = query.replace(/-/g, '');
-    rackno = rackno.replace(/-/g, '');
-
-    return rackno.toLowerCase().indexOf(query) !== -1;
+    this.getBooks($stateParams);
   }
 
   canAdd() {
@@ -39,14 +20,18 @@ export default class BooksListCtrl {
 
     this.BooksSvc.getFilters()
       .then(filters => this.filters = filters)
-      .then(() => this.getBooks());
+      .then(() => this.onFiltersChange());
   }
 
-  getBooks() {
+  getBooks(params) {
 
-    this.BooksSvc.getBooks()
-      .then(books => this.books = books)
-      .finally(() => this.loading = false);
+    this.loading = true;
+
+    this.BooksSvc.getFilters()
+      .then(filters => this.filters = filters)
+      .then(() => this.extendFilters(params))
+      .then(() => this.onFiltersChange());
+
   }
 
   getMoreBooks() {
@@ -79,16 +64,17 @@ export default class BooksListCtrl {
       .finally(() => this.loading = false);
   }
 
-  search(row) { // eslint-disable-line complexity
+  onSearchStringChange() {
 
-    const query = (this.query || '').toLowerCase();
+    const minSearchLength = 2;
 
-    let match = false;
+    if (this.filters.searchString.trim().length > minSearchLength) {
+      this.onFiltersChange();
+    }
+  }
 
-    match = match || row.title.toLowerCase().indexOf(query) !== -1;
-    match = match || BooksListCtrl.matchAccessionNumber(row.accessno, query);
-    match = match || BooksListCtrl.matchRackNumber(row.rackno, query);
+  extendFilters(params) {
 
-    return match;
+    this.filters.searchString = params.q;
   }
 }
