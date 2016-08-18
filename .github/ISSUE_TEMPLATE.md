@@ -16,5 +16,11 @@
 
 [Describe what the expected result should be when the steps are followed]
 
- - Feel free to remove sections depending on the issue
- - Feel free to attach pictures to visually demostrate the issue, although please do not add pictures that might expose the inner workings of the code for e.g. screenshot network calls that send/receive sensitive data.
+## Sample
+
+[Add screenshots]
+
+#### _Note_
+ - Please remove the this section when creating the issue
+ - Feel free to remove any other sections as needed
+ - Though its not necessary feel free to attach pictures to visually demostrate the issue. Please do not add pictures that might expose the inner workings of the code for e.g. screenshot network calls that send/receive sensitive data
