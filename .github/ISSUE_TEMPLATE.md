@@ -15,3 +15,6 @@
 ## Expected Result
 
 [Describe what the expected result should be when the steps are followed]
+
+ - Feel free to remove sections depending on the issue
+ - Feel free to attach pictures to visually demostrate the issue, although please do not add pictures that might expose the inner workings of the code for e.g. screenshot network calls that send/receive sensitive data.
