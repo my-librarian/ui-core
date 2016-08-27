@@ -59,6 +59,18 @@ export default class BooksListCtrl {
     this.applyFilters();
   }
 
+  hasValidSearchString() {
+
+    const minSearchLength = 2;
+    const {searchString} = this.filters;
+
+    return [
+      searchString === '',
+      /^r\d/i.test(searchString),
+      searchString.trim().length > minSearchLength
+    ].some(condition => condition);
+  }
+
   onFiltersChange() {
 
     this.filters.page = 1;
@@ -70,9 +82,7 @@ export default class BooksListCtrl {
 
   onSearchStringChange() {
 
-    const minSearchLength = 2;
-
-    if (this.filters.searchString.trim().length > minSearchLength) {
+    if (this.hasValidSearchString()) {
       this.onFiltersChange();
     }
   }
