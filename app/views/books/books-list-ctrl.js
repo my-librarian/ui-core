@@ -1,12 +1,13 @@
 /*@ngInject*/
 export default class BooksListCtrl {
 
-  constructor($stateParams, BooksSvc, LoginSvc) {
+  constructor(BooksSvc, LoginSvc, UrlSvc) {
 
     this.BooksSvc = BooksSvc;
     this.LoginSvc = LoginSvc;
+    this.UrlSvc = UrlSvc;
 
-    this.getBooks($stateParams);
+    this.getBooks();
   }
 
   canAdd() {
@@ -23,13 +24,13 @@ export default class BooksListCtrl {
       .then(() => this.onFiltersChange());
   }
 
-  getBooks(params) {
+  getBooks() {
 
     this.loading = true;
 
     this.BooksSvc.getFilters()
       .then(filters => this.filters = filters)
-      .then(() => this.extendFilters(params))
+      .then(() => this.UrlSvc.parseUrl(this.filters))
       .then(() => this.onFiltersChange());
 
   }
@@ -77,6 +78,7 @@ export default class BooksListCtrl {
     this.allLoaded = false;
     this.books = [];
 
+    this.UrlSvc.updateUrl(this.filters);
     this.applyFilters();
   }
 
@@ -85,10 +87,5 @@ export default class BooksListCtrl {
     if (this.hasValidSearchString()) {
       this.onFiltersChange();
     }
-  }
-
-  extendFilters(params) {
-
-    this.filters.searchString = params.q || '';
   }
 }
