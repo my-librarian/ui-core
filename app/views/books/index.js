@@ -1,6 +1,7 @@
 import angular from 'angular';
 
 import BooksSvc from './books-svc';
+import UrlSvc from './url-svc';
 import book from './book';
 import bookDetails from './book-details';
 import bookEdit from './book-edit';
@@ -20,4 +21,5 @@ export default angular
   .directive(...books)
   .directive(...booksList)
   .service('BooksSvc', BooksSvc)
+  .service('UrlSvc', UrlSvc)
   .name;
