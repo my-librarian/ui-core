@@ -67,7 +67,7 @@ export default class CreateBookCtrl {
     this.book.condition = 'GOOD';
     this.book.source = 'CL';
     this.book.binding = 'PAPER';
-    this.book.original = true;
+    this.book.copy = 'OC';
     this.book.authors = [{}];
     this.book.subjects = [{}];
   }

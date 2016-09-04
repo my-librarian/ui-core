@@ -74,9 +74,13 @@
       <span class="label">Price</span>
       <input ng-model="vm.book.cost" placeholder="Rs." ng-pattern="/^\d*(\.\d+)?$/">
     </label>
-    <label class="original small">
-      <span class="label">Original</span>
-      <checkbox model="vm.book.original"></checkbox>
+    <label class="copy small">
+      <span class="label">Copy</span>
+      <select ng-model="vm.book.copy">
+        <option value="OC">Original</option>
+        <option value="PC">Photocopy</option>
+        <option value="EC">Electronic</option>
+      </select>
     </label>
     <label class="binding small">
       <span class="label">Binding</span>

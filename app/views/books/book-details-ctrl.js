@@ -56,6 +56,7 @@ export default class BookDetailsCtrl {
 
         details.binding = this.BooksSvc.getBinding(details.binding);
         details.condition = this.BooksSvc.getCondition(details.condition);
+        details.copy = this.BooksSvc.getCopy(details.copy);
         details.source = this.BooksSvc.getSource(details.source);
 
         details.description = details.description.replace(/\{br\}/g, '\n');

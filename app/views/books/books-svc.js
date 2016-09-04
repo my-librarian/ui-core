@@ -13,6 +13,14 @@ export default class BooksSvc {
     return date && new Date(`${date} UTC`);
   }
 
+  getBinding(cover) {
+
+    return {
+      paper: 'Paper Binding',
+      hard: 'Hard Binding'
+    }[cover.toLowerCase()];
+  }
+
   getCondition(condition) {
 
     return {
@@ -22,12 +30,13 @@ export default class BooksSvc {
     }[condition.toLowerCase()];
   }
 
-  getBinding(cover) {
+  getCopy(copy) {
 
     return {
-      paper: 'Paper Binding',
-      hard: 'Hard Binding'
-    }[cover.toLowerCase()];
+      oc: 'Original',
+      ec: 'Electronic',
+      pc: 'Photocopy'
+    }[copy.toLowerCase()];
   }
 
   getSource(source) {
@@ -88,13 +97,7 @@ export default class BooksSvc {
 
     return this.$http
       .get(`/api/book/${bookId}`)
-      .then(response => response.data)
-      .then(response => {
-
-        response.original = !!response.original;
-
-        return response;
-      });
+      .then(response => response.data);
   }
 
   getBorrowHistory(bookId) {
