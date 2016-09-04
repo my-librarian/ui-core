@@ -9,6 +9,7 @@ import authorInput from './typeahead/author-input';
 import buttonGoToTop from './button-go-to-top';
 import checkbox from './checkbox';
 import compile from './compile';
+import labeledInput from './labeled-input';
 import languageInput from './typeahead/language-input';
 import loader from './loader/loader';
 import radio from './radio';
@@ -24,6 +25,7 @@ export default angular.module('common.components', [])
   .directive(...buttonGoToTop)
   .directive(...checkbox)
   .directive(...compile)
+  .directive(...labeledInput)
   .directive(...languageInput)
   .directive(...loader)
   .directive(...subjectInput)
