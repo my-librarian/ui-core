@@ -1,7 +1,7 @@
 <form name="vm.createBookForm" novalidate>
   <section class="fieldset">
-    <label class="accessno small">
-      <span class="label">Accession No.</span>
+
+    <labeled-input class-names="accessno small" label="Accession No.">
       <input
         type="text"
         class="txt"
@@ -9,13 +9,13 @@
         ng-pattern="/^\d{5,6}$/"
         placeholder="####"
         ng-required="true">
-    </label>
-    <label class="rackno small">
-      <span class="label">Rack No.</span>
+    </labeled-input>
+
+    <labeled-input class-names="rackno small" label="Rack No.">
       <input type="text" class="txt" ng-model="vm.book.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
-    </label>
-    <label class="acquisitiondate small">
-      <span class="label">Acquisition Date</span>
+    </labeled-input>
+
+    <labeled-input class-names="acquisitiondate small" label="Acquisition Date">
       <input
         class="txt"
         datepicker-options="vm.datepicker.options"
@@ -28,11 +28,12 @@
         uib-datepicker-popup="{{vm.datepicker.format}}"
         readonly
       >
-    </label>
-    <label class="title big">
-      <span class="label">Title</span>
+    </labeled-input>
+
+    <labeled-input class-names="title big" label="Title">
       <input type="text" class="txt" ng-model="vm.book.title" placeholder="Enter book title" ng-required="true">
-    </label>
+    </labeled-input>
+
     <label class="subject big">
       <span class="label"><a ng-click="vm.addSubjectField()">Add Subject</a>Subject(s)</span>
       <span class="input" ng-repeat="subject in vm.book.subjects track by $index">
@@ -40,6 +41,7 @@
         <i class="icon close" ng-click="vm.removeSubjectField($index)" ng-if="!$first"></i>
       </span>
     </label>
+
     <label class="author big">
       <span class="label"><a ng-click="vm.addAuthorField()">Add Author</a>Author(s)</span>
       <span class="input" ng-repeat="author in vm.book.authors track by $index">
@@ -47,65 +49,66 @@
         <i class="icon close" ng-click="vm.removeAuthorField($index)" ng-if="!$first"></i>
       </span>
     </label>
-    <label class="description big">
-      <span class="label">Brief description</span>
+
+    <labeled-input class-names="description big" label="Brief description">
       <textarea ng-model="vm.book.description" rows="5" placeholder="Write a brief description of the book."></textarea>
       <ul class="hints">
         <li>Use '{br}' to enter new lines</li>
       </ul>
-    </label>
-    <label class="pages small">
-      <span class="label">No. of pages</span>
+    </labeled-input>
+
+    <labeled-input class-names="pages small" label="No. of pages">
       <input ng-model="vm.book.pages" ng-pattern="/^[1-9]\d*$/" placeholder="e.g 230">
-    </label>
-    <label class="year small">
-      <span class="label">Publication year</span>
+    </labeled-input>
+
+    <labeled-input class-names="year small" label="Publication year">
       <input ng-model="vm.book.year" ng-pattern="/^\d{0,4}$/" placeholder="YYYY">
-    </label>
-    <label class="language small">
-      <span class="label">Language</span>
+    </labeled-input>
+
+    <labeled-input class-names="language small" label="Language">
       <language-input model="vm.book.language"></language-input>
-    </label>
-    <label class="isbn small">
-      <span class="label">ISBN</span>
+    </labeled-input>
+
+    <labeled-input class-names="isbn small" label="ISBN">
       <input ng-model="vm.book.isbn" placeholder="Enter ISBN" maxlength="15">
-    </label>
-    <label class="cost small">
-      <span class="label">Price</span>
+    </labeled-input>
+
+    <labeled-input class-names="cost small" label="Price">
       <input ng-model="vm.book.cost" placeholder="Rs." ng-pattern="/^\d*(\.\d+)?$/">
-    </label>
-    <label class="copy small">
-      <span class="label">Copy</span>
+    </labeled-input>
+
+    <labeled-input class-names="copy small" label="Copy">
       <select ng-model="vm.book.copy">
         <option value="OC">Original</option>
         <option value="PC">Photocopy</option>
         <option value="EC">Electronic</option>
       </select>
-    </label>
-    <label class="binding small">
-      <span class="label">Binding</span>
+    </labeled-input>
+
+    <labeled-input class-names="binding small" label="Binding">
       <select ng-model="vm.book.binding">
         <option value="HARD">Hard Cover</option>
         <option value="PAPER">Paper Cover</option>
       </select>
-    </label>
-    <label class="source small">
-      <span class="label">Source</span>
+    </labeled-input>
+
+    <labeled-input class-names="source small" label="Source">
       <select ng-model="vm.book.source">
         <option value="CL">Central Library</option>
         <option value="DC">Donated Copy</option>
         <option value="CC">Complimented Copy</option>
         <option value="OT">Other</option>
       </select>
-    </label>
-    <label class="condition small">
-      <span class="label">Condition</span>
+    </labeled-input>
+
+    <labeled-input class-names="condition small" label="Condition">
       <select ng-model="vm.book.condition">
         <option value="GOOD">Good</option>
         <option value="DAMAGED">Damaged</option>
         <option value="TBR">To be replaced</option>
       </select>
-    </label>
+    </labeled-input>
+
   </section>
   <ul class="errors"></ul>
   <section class="actions">
