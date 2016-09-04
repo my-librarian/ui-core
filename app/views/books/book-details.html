@@ -22,6 +22,7 @@
 
   <attribute
     label="Rack No."
+    ng-if="!vm.isElectronicCopy"
     value="{{vm.details.rackno}}"
   ></attribute>
 
@@ -47,27 +48,38 @@
 
   <attribute
     label="Price"
+    ng-if="!vm.isElectronicCopy"
     value="{{vm.details.cost | currency: '&#8377;'}}"
   ></attribute>
 
   <attribute
-          label="Copy"
-          value="{{vm.details.copy}}"
+    label="Copy"
+    value="{{vm.details.copy}}"
   ></attribute>
 
   <attribute
     label="Cover"
+    ng-if="!vm.isElectronicCopy"
     value="{{vm.details.binding}}"
   ></attribute>
 
   <attribute
     label="Condition"
+    ng-if="!vm.isElectronicCopy"
     value="{{vm.details.condition}}"
   ></attribute>
 
   <attribute
     label="Source"
+    ng-if="!vm.isElectronicCopy"
     value="{{vm.details.source}}"
+  ></attribute>
+
+  <attribute
+    label="Link"
+    ng-if="vm.isElectronicCopy"
+    link="{{vm.details.url}}"
+    value="to Book"
   ></attribute>
 
 </section>

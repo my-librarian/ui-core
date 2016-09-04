@@ -11,10 +11,6 @@
         ng-required="true">
     </labeled-input>
 
-    <labeled-input class-names="rackno small" label="Rack No.">
-      <input type="text" class="txt" ng-model="vm.book.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
-    </labeled-input>
-
     <labeled-input class-names="acquisitiondate small" label="Acquisition Date">
       <input
         class="txt"
@@ -28,6 +24,10 @@
         uib-datepicker-popup="{{vm.datepicker.format}}"
         readonly
       >
+    </labeled-input>
+
+    <labeled-input class-names="rackno small" label="Rack No." ng-if="!vm.isElectronicCopy">
+      <input type="text" class="txt" ng-model="vm.book.rackno" placeholder="e.g 1a2" rack-no ng-required="true">
     </labeled-input>
 
     <labeled-input class-names="title big" label="Title">
@@ -73,26 +73,26 @@
       <input ng-model="vm.book.isbn" placeholder="Enter ISBN" maxlength="15">
     </labeled-input>
 
-    <labeled-input class-names="cost small" label="Price">
-      <input ng-model="vm.book.cost" placeholder="Rs." ng-pattern="/^\d*(\.\d+)?$/">
-    </labeled-input>
-
     <labeled-input class-names="copy small" label="Copy">
-      <select ng-model="vm.book.copy">
+      <select ng-model="vm.book.copy" ng-change="vm.onCopyChange()">
         <option value="OC">Original</option>
         <option value="PC">Photocopy</option>
         <option value="EC">Electronic</option>
       </select>
     </labeled-input>
 
-    <labeled-input class-names="binding small" label="Binding">
+    <labeled-input class-names="cost small" label="Price" ng-if="!vm.isElectronicCopy">
+      <input ng-model="vm.book.cost" placeholder="Rs." ng-pattern="/^\d*(\.\d+)?$/">
+    </labeled-input>
+
+    <labeled-input class-names="binding small" label="Binding" ng-if="!vm.isElectronicCopy">
       <select ng-model="vm.book.binding">
         <option value="HARD">Hard Cover</option>
         <option value="PAPER">Paper Cover</option>
       </select>
     </labeled-input>
 
-    <labeled-input class-names="source small" label="Source">
+    <labeled-input class-names="source small" label="Source" ng-if="!vm.isElectronicCopy">
       <select ng-model="vm.book.source">
         <option value="CL">Central Library</option>
         <option value="DC">Donated Copy</option>
@@ -101,12 +101,16 @@
       </select>
     </labeled-input>
 
-    <labeled-input class-names="condition small" label="Condition">
+    <labeled-input class-names="condition small" label="Condition" ng-if="!vm.isElectronicCopy">
       <select ng-model="vm.book.condition">
         <option value="GOOD">Good</option>
         <option value="DAMAGED">Damaged</option>
         <option value="TBR">To be replaced</option>
       </select>
+    </labeled-input>
+
+    <labeled-input class-names="url big" label="URL" ng-if="vm.isElectronicCopy">
+      <input type="url" ng-model="vm.book.url" ng-required="vm.isElectronicCopy">
     </labeled-input>
 
   </section>

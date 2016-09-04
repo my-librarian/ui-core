@@ -8,6 +8,12 @@ export default class CreateBookCtrl {
     this.resetForm();
   }
 
+  get isElectronicCopy() {
+
+    return this.book.copy === 'EC';
+
+  }
+
   addAuthorField() {
 
     this.book.authors.push({});
@@ -17,6 +23,28 @@ export default class CreateBookCtrl {
   addSubjectField() {
 
     this.book.subjects.push({});
+
+  }
+
+  onCopyChange() {
+
+    if (!this.stash) {
+      this.stash = Object.assign({}, this.book);
+    }
+
+    if (this.isElectronicCopy) {
+
+      this.book.source = 'DC';
+      this.book.rackno = '';
+
+    } else {
+
+      this.book.source = this.stash.source;
+      this.book.rackno = this.stash.rackno;
+
+      delete this.stash;
+
+    }
 
   }
 

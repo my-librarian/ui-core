@@ -54,6 +54,8 @@ export default class BookDetailsCtrl {
     this.BooksSvc.getBook(this.$state.params.id)
       .then(details => {
 
+        this.isElectronicCopy = details.copy === 'EC';
+
         details.binding = this.BooksSvc.getBinding(details.binding);
         details.condition = this.BooksSvc.getCondition(details.condition);
         details.copy = this.BooksSvc.getCopy(details.copy);
