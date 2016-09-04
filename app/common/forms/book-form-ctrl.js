@@ -35,7 +35,7 @@ export default class CreateBookCtrl {
     if (this.isElectronicCopy) {
 
       this.book.source = 'DC';
-      this.book.rackno = '';
+      this.book.rackno = null;
 
     } else {
 
