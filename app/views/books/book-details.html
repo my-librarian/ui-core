@@ -1,9 +1,9 @@
 <h2>
   <i class="icon book"></i>
   {{vm.details.title}}
-  <button class="issue" ng-click="vm.returnBook()" ng-if="vm.canReturn()">Return</button>
-  <button class="borrow" ng-click="vm.borrowBook()" ng-if="vm.canBorrow()">Borrow</button>
-  <button class="issue" ng-click="vm.issueBook()" ng-if="vm.canEdit()">Issue</button>
+  <button class="issue" ng-click="vm.returnBook()" ng-if="!vm.isElectronicCopy && vm.canReturn()">Return</button>
+  <button class="borrow" ng-click="vm.borrowBook()" ng-if="!vm.isElectronicCopy && vm.canBorrow()">Borrow</button>
+  <button class="issue" ng-click="vm.issueBook()" ng-if="!vm.isElectronicCopy && vm.canEdit()">Issue</button>
   <i class="icon delete" ng-click="vm.deleteBook()" title="Delete book" ng-if="vm.canEdit()"></i>
   <i class="icon edit" ui-sref="books.edit({id: vm.details.bookid})" title="Edit book" ng-if="vm.canEdit()"></i>
 </h2>
@@ -79,7 +79,7 @@
     label="Link"
     ng-if="vm.isElectronicCopy"
     link="{{vm.details.url}}"
-    value="to Book"
+    value="Click to view book"
   ></attribute>
 
 </section>
@@ -105,7 +105,7 @@
   </aside>
 </section>
 
-<section class="borrow-history" ng-if="vm.canViewHistory()">
+<section class="borrow-history" ng-if="!vm.isElectronicCopy && vm.canViewHistory()">
   <h3>Borrow History</h3>
   <button ng-click="vm.getBorrowHistory()" ng-if="!vm.history.length">Click to load borrow history</button>
   <table ng-if="vm.history.length">
