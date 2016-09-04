@@ -6,6 +6,14 @@
     ui-sref="home"
     user-info-attribute
   ></a>
+  <div class="language">
+    <i class="icon translate"></i>
+    <select ng-change="vm.setLanguage()" ng-model="vm.language">
+      <option value="en">English</option>
+      <option value="ta">Tamil</option>
+      <option value="sa">Sanskrit</option>
+    </select>
+  </div>
   <a
     class="message"
     label="Hello there, {{vm.user.details.name}}!"

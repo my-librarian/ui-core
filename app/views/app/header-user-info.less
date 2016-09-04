@@ -31,10 +31,6 @@ header-user-info {
       &.message {
         display: none;
       }
-
-      &.home {
-        flex-grow: 1;
-      }
     }
 
     &.logged-in {
@@ -53,6 +49,20 @@ header-user-info {
 
         &.login {
           display: none;
+        }
+      }
+    }
+
+    .translate.icon {
+      margin-left: 15px;
+    }
+
+    .language {
+      flex-grow: 1;
+
+      select {
+        option {
+          color: @card-foreground;
         }
       }
     }
