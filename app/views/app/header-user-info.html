@@ -2,7 +2,7 @@
   <a
     class="home"
     icon="home"
-    label="Home"
+    label="HOME"
     ui-sref="home"
     user-info-attribute
   ></a>
@@ -10,32 +10,28 @@
     <i class="icon translate"></i>
     <select ng-change="vm.setLanguage()" ng-model="vm.language">
       <option value="en">English</option>
-      <option value="ta">Tamil</option>
-      <option value="sa">Sanskrit</option>
+      <option value="ta">தமிழ்</option>
+      <option value="sa">संस्कृतम्</option>
     </select>
   </div>
-  <a
-    class="message"
-    label="Hello there, {{vm.user.details.name}}!"
-    user-info-attribute
-  ></a>
+  <a class="message" translate translate-values="{name: vm.user.details.name}">WELCOME_MESSAGE</a>
   <a
     class="login"
     icon="user"
-    label="Log in"
+    label="LOG_IN"
     ui-sref="login"
     user-info-attribute
   ></a>
   <a
     class="profile"
     icon="user"
-    label="Profile"
+    label="PROFILE"
     user-info-attribute
   ></a>
   <a
     class="logout"
     icon="logout"
-    label="Log out"
+    label="LOG_OUT"
     ng-click="vm.logout()"
     user-info-attribute
   ></a>

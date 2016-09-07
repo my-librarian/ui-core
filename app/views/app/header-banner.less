@@ -11,9 +11,15 @@ header-banner {
     .left,
     .right {
       flex-basis: 100%;
+    }
 
-      @media screen and (min-width: 775px) {
-        flex-basis: 50%;
+    @media screen and (min-width: 775px) {
+      .left {
+        flex-basis: auto;
+      }
+
+      .right {
+        flex: 1 0 auto;
       }
     }
 

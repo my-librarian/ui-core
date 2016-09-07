@@ -2,23 +2,23 @@
 
   <div class="left">
     <a ui-sref="home" class="logo">
-      <h1>My Librarian</h1>
-      <p>Department of Sanskrit - RKMVC</p>
+      <h1 translate>MY_LIBRARIAN</h1>
+      <p translate>DEPARTMENT_OF_SANSKRIT</p>
     </a>
   </div>
 
   <ul class="right">
     <li>
-      <a ui-sref-active="active" ui-sref="books.list">Books</a>
+      <a ui-sref-active="active" ui-sref="books.list" translate>BOOKS</a>
     </li>
     <li>
-      <a ui-sref-active="active" ui-sref="authors.list">Authors</a>
+      <a ui-sref-active="active" ui-sref="authors.list" translate>AUTHORS</a>
     </li>
     <li>
-      <a ui-sref-active="active" ui-sref="subjects.list">Subjects</a>
+      <a ui-sref-active="active" ui-sref="subjects.list" translate>SUBJECTS</a>
     </li>
     <li>
-      <a ui-sref-active="active" ui-sref="admin" ng-if="isModerator()">Administration</a>
+      <a ui-sref-active="active" ui-sref="admin" ng-if="isModerator()" translate>ADMINISTRATION</a>
     </li>
   </ul>
 
