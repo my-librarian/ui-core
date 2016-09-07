@@ -4,7 +4,7 @@ var Webpack = require('webpack');
 var config = require('./webpack.config.prod');
 
 config.devtool = 'source-map';
-config.entry.unshift('webpack-dev-server/client?http://localhost:8080/', 'webpack/hot/dev-server');
+config.entry.index.unshift('webpack-dev-server/client?http://localhost:8080/', 'webpack/hot/dev-server');
 config.devServer = {
   contentBase: './',
   hot: true,

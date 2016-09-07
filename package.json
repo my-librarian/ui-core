@@ -33,7 +33,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.prod.js && npm run minify",
     "eslint": "eslint .",
-    "minify": "uglifyjs -c -o dist/index.js -- dist/index.js",
+    "minify": "uglifyjs -c -o dist/vendor.js -- dist/vendor.js",
     "postversion": "git push && git push --tags",
     "start": "webpack-dev-server",
     "test": "npm run eslint"

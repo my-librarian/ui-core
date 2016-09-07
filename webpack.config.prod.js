@@ -1,14 +1,22 @@
 /* eslint-disable no-var */
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Webpack = require('webpack');
 
 module.exports = {
-  entry: [
-    './app/index.js'
-  ],
+  entry: {
+    index: ['./app/index.js'],
+    vendor: [
+      'angular',
+      'angular-translate',
+      'angular-ui-bootstrap',
+      'angular-ui-router',
+      'ng-infinite-scroll'
+    ]
+  },
   output: {
     path: './dist',
-    filename: 'index.js'
+    filename: '[name].js'
   },
   module: {
     loaders: [
@@ -30,7 +38,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|ttf|eot|svg|jpeg|png|gif)/,
-        loader: 'url'
+        loader: 'url?limit=10000'
       }
     ]
   },
@@ -40,6 +48,7 @@ module.exports = {
       template: './app/index.html',
       favicon: './app/styles/images/favicon.ico'
     }),
-    new ExtractTextPlugin('index.css')
+    new ExtractTextPlugin('[name].css'),
+    new Webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
   ]
 };
