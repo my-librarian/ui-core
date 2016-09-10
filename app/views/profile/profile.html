@@ -1,0 +1,57 @@
+<h2>
+  <i class="icon user"></i>
+  {{vm.user.name}}
+</h2>
+
+<section class="borrowed">
+  <h3>Borrowed Books</h3>
+  <table>
+    <tr>
+      <th class="title">Title</th>
+      <th class="borrow-date">Borrow Date</th>
+      <th class="due-date">Due Date</th>
+    </tr>
+    <tr ng-repeat="book in vm.user.borrowed">
+      <td><a ui-sref="books.details({id: book.bookid})">{{::book.title}}</a></td>
+      <td title="{{::book.borrowdate | utc: 'd MMM, yyyy hh:mm a'}}">{{::book.borrowdate | utc: 'd MMM, yyyy'}}</td>
+      <td title="{{::book.duedate | utc: 'd MMM, yyyy hh:mm a'}}">{{::book.duedate | utc: 'd MMM, yyyy'}}</td>
+    </tr>
+  </table>
+</section>
+
+<section class="borrow-history">
+  <h3>Borrow History</h3>
+  <table>
+    <tr>
+      <th class="title">Title</th>
+      <th class="issued-by">Issued By</th>
+      <th class="received-by">Received By</th>
+      <th class="penalty">Penalty</th>
+    </tr>
+    <tr ng-repeat="history in vm.user.history">
+      <td>
+        <a ui-sref="books.details({id: history.bookid})">{{::history.bookTitle}}</a>
+      </td>
+      <td>
+        <div class="name">{{::history.issuerName}}</div>
+        <div
+          class="date"
+          title="{{::history.borrowdate | utc: 'd MMM, yyyy hh:mm a'}}"
+        >
+          on {{::history.borrowdate | utc: 'd MMM, yyyy'}}
+        </div>
+      </td>
+      <td>
+        <div class="name">{{::history.receiverName}}</div>
+        <div
+          class="date"
+          title="{{::history.returndate | utc: 'd MMM, yyyy hh:mm a'}}"
+        >
+          on {{::history.returndate | utc: 'd MMM, yyyy'}}
+        </div>
+      </td>
+      <td>{{::history.penalty}}</td>
+    </tr>
+  </table>
+</section>
+

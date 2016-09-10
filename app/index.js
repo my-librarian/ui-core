@@ -11,6 +11,7 @@ import books from './views/books';
 import common from './common';
 import home from './views/home';
 import login from './views/login';
+import profile from './views/profile';
 import subjects from './views/subjects';
 
 import './styles/less/base.less';
@@ -31,6 +32,7 @@ angular.module(appName, [
   common,
   home,
   login,
+  profile,
   subjects
 ]);
 

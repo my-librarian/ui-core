@@ -1,0 +1,46 @@
+@import "../../styles/less/mixins";
+@import "../../styles/less/variables";
+
+profile {
+  display: block;
+  .center-it();
+
+  section {
+    margin-bottom: 25px;
+  }
+
+  .borrowed {
+    .title {
+      width: 60%;
+    }
+
+    .borrow-date,
+    .due-date {
+      width: 20%;
+    }
+  }
+
+  .borrow-history {
+    .title {
+      width: 50%;
+    }
+
+    .issued-by,
+    .received-by {
+      width: 20%;
+    }
+
+    .penalty {
+      width: 10%;
+    }
+
+    .name {
+      margin-bottom: 5px;
+    }
+
+    .date {
+      font-size: .85em;
+      color: @surface-secondary-foreground;
+    }
+  }
+}
