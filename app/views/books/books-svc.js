@@ -8,11 +8,6 @@ export default class BooksSvc {
     this.$q = $q;
   }
 
-  static formatDate(date) {
-
-    return date && new Date(`${date} UTC`);
-  }
-
   getBinding(cover) {
 
     return {
@@ -105,11 +100,6 @@ export default class BooksSvc {
     return this.$http
       .get(`/api/borrow/${bookId}`)
       .then(response => response.data)
-      .then(response => response.map(row => ({
-        ...row,
-        borrowdate: BooksSvc.formatDate(row.borrowdate),
-        returndate: BooksSvc.formatDate(row.returndate)
-      })))
       .then(response => {
 
         if (!response.length) {
