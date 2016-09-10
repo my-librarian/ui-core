@@ -119,10 +119,12 @@
     </tr>
     <tr ng-repeat="history in vm.history">
       <td>{{::history.borrowerName}}</td>
-      <td title="{{::history.borrowdate | date: 'd MMM, yyyy hh:mm a'}}">{{::history.borrowdate | date: 'd MMM, yyyy'}}</td>
+      <td title="{{::history.borrowdate | utc: 'd MMM, yyyy hh:mm a'}}">{{::history.borrowdate | utc: 'd MMM, yyyy'}}
+      </td>
       <td>{{::history.issuerName}}</td>
       <td>{{::history.receiverName}}</td>
-      <td title="{{::history.returndate | date: 'd MMM, yyyy hh:mm a'}}">{{::history.returndate | date: 'd MMM, yyyy'}}</td>
+      <td title="{{::history.returndate | utc: 'd MMM, yyyy hh:mm a'}}">{{::history.returndate | utc: 'd MMM, yyyy'}}
+      </td>
       <td>{{history.returndate && (history.penalty | currency: '')}}</td>
     </tr>
   </table>
