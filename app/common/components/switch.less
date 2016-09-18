@@ -1,0 +1,43 @@
+@import '../../styles/less/mixins';
+@import '../../styles/less/variables';
+
+switch {
+  display: inline-block;
+
+  label {
+    &:extend(.card--1);
+    display: inline-block;
+    height: 1em;
+    width: 2.5em;
+    border-radius: 0.5em;
+    background-color: @accent-color;
+    position: relative;
+
+    .handle {
+      &:extend(.card-1);
+      border-radius: 0.55em;
+      position: absolute;
+      top: -0.05em;
+      left: -0.05em;
+      right: auto;
+      display: inline-block;
+      height: 1.1em;
+      width: 1.1em;
+      transition: all .2s;
+    }
+  }
+
+  input[type=checkbox] {
+    display: none;
+
+    &:checked + label {
+      background-color: @primary;
+
+      .handle {
+        position: absolute;
+        top: -0.05em;
+        left: 1.45em;
+      }
+    }
+  }
+}

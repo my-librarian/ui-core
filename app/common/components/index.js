@@ -12,9 +12,10 @@ import compile from './compile';
 import labeledInput from './labeled-input';
 import languageInput from './typeahead/language-input';
 import loader from './loader/loader';
+import subjectInput from './typeahead/subject-input';
+import switchDirective from './switch';
 import radio from './radio';
 import title from './title';
-import subjectInput from './typeahead/subject-input';
 
 import './typeahead/input.less';
 
@@ -29,6 +30,7 @@ export default angular.module('common.components', [])
   .directive(...languageInput)
   .directive(...loader)
   .directive(...subjectInput)
+  .directive(...switchDirective)
   .directive(...radio)
   .directive(...title)
   .service('AlertsSvc', AlertsSvc)
