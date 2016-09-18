@@ -7,6 +7,38 @@ profile {
 
   section {
     margin-bottom: 25px;
+
+    aside {
+      padding-left: 10px;
+    }
+  }
+
+  .details,
+  .settings,
+  .password {
+    table {
+      .inputs();
+      width: 50%;
+      box-shadow: none;
+      background: none;
+
+      td:nth-child(n) {
+        background: none;
+        padding: 0 0 10px 10px;
+      }
+
+      td:nth-child(1) {
+        width: 50%;
+      }
+
+      td:nth-child(2) {
+        width: 50%;
+      }
+
+      button {
+        .button();
+      }
+    }
   }
 
   .borrowed {

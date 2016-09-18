@@ -6,15 +6,23 @@ export default class ProfileSvc {
     this.$http = $http;
   }
 
-  static formatDate(date) {
+  static getUserLevel(level) {
 
-    return date && new Date(`${date} UTC`);
+    return {
+      1: 'User',
+      2: 'Moderator',
+      3: 'Administrator'
+    }[level];
   }
 
   getUserData(id) {
 
     return this.$http
       .get(`/api/profile/${id}`)
-      .then(response => response.data);
+      .then(response => response.data)
+      .then(user => ({
+        ...user,
+        level: ProfileSvc.getUserLevel(user.level)
+      }));
   }
 }

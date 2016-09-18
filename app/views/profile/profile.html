@@ -3,9 +3,70 @@
   {{vm.user.name}}
 </h2>
 
+<section class="details">
+  <h3>Details</h3>
+  <table>
+    <tr>
+      <td>Username (dept. no.)</td>
+      <td>{{vm.user.deptno}}</td>
+    </tr>
+    <tr>
+      <td>User level</td>
+      <td>{{vm.user.level}}</td>
+    </tr>
+  </table>
+</section>
+
+<section class="settings">
+  <h3>Settings</h3>
+  <table>
+    <tr>
+      <td>Show counts</td>
+      <td>
+        <switch model="something"></switch>
+      </td>
+    </tr>
+    <tr>
+      <td>Preferred language</td>
+      <td>
+        <select>
+          <option value="en" selected>English</option>
+          <option value="ta">தமிழ்</option>
+          <option value="sa">संस्कृतम्</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section class="password">
+  <h3>Change Password</h3>
+  <table>
+    <tr>
+      <td>Old password</td>
+      <td><input type="password"></td>
+    </tr>
+    <tr>
+      <td>New password</td>
+      <td><input type="password"></td>
+    </tr>
+    <tr>
+      <td>Confirm</td>
+      <td><input type="password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button>Save</button>
+      </td>
+    </tr>
+  </table>
+</section>
+
 <section class="borrowed">
   <h3>Borrowed Books</h3>
-  <table>
+  <aside ng-if="!vm.user.borrowed.length">There are no borrowed books by the user</aside>
+  <table ng-if="vm.user.borrowed.length">
     <tr>
       <th class="title">Title</th>
       <th class="borrow-date">Borrow Date</th>
@@ -21,7 +82,8 @@
 
 <section class="borrow-history">
   <h3>Borrow History</h3>
-  <table>
+  <aside ng-if="!vm.user.history.length">There is no history</aside>
+  <table ng-if="vm.user.history.length">
     <tr>
       <th class="title">Title</th>
       <th class="issued-by">Issued By</th>
