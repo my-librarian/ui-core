@@ -1,0 +1,16 @@
+@import "../../styles/less/mixins";
+
+breadcrumbs {
+  .center-it();
+  height: 1.25em;
+  display: block;
+  margin-bottom: 15px;
+
+  li {
+    display: inline;
+
+    &:after {
+      content: '\000BB'
+    }
+  }
+}

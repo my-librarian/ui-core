@@ -1,11 +1,13 @@
 import angular from 'angular';
 
 import AlertsSvc from './alerts/alerts-svc';
+import BreadcrumbsSvc from './breadcrumbs-svc';
 import LoaderSvc from './loader/loader-svc';
 import TitleSvc from './title-svc';
 import alerts from './alerts/alerts';
 import attribute from './attribute';
 import authorInput from './typeahead/author-input';
+import breadcrumbs from './breadcrumbs';
 import buttonGoToTop from './button-go-to-top';
 import checkbox from './checkbox';
 import compile from './compile';
@@ -23,6 +25,7 @@ export default angular.module('common.components', [])
   .directive(...alerts)
   .directive(...attribute)
   .directive(...authorInput)
+  .directive(...breadcrumbs)
   .directive(...buttonGoToTop)
   .directive(...checkbox)
   .directive(...compile)
@@ -34,6 +37,7 @@ export default angular.module('common.components', [])
   .directive(...radio)
   .directive(...title)
   .service('AlertsSvc', AlertsSvc)
+  .service('BreadcrumbsSvc', BreadcrumbsSvc)
   .service('LoaderSvc', LoaderSvc)
   .service('TitleSvc', TitleSvc)
   .name;
