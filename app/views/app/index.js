@@ -2,6 +2,7 @@ import angular from 'angular';
 
 import app from './app';
 import body from './body';
+import buildBreadcrumbs from './breadcrumbs';
 import header from './header';
 import headerBanner from './header-banner';
 import headerUserInfo from './header-user-info';
@@ -15,6 +16,7 @@ export default angular.module('app', [])
   .config(interceptor)
   .config(routes)
   .config(translation)
+  .run(buildBreadcrumbs)
   .directive(...app)
   .directive(...body)
   .directive(...header)
