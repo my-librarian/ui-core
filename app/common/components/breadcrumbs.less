@@ -1,16 +1,24 @@
 @import "../../styles/less/mixins";
+@import "../../styles/less/variables";
 
-breadcrumbs {
-  .center-it();
-  height: 1.25em;
+breadcrumbs:extend(.card-2) {
+  background-color: @breadcrumbs;
+  color: darken(@secondary, 10%);
   display: block;
-  margin-bottom: 15px;
+  font-size: .75em;
+  height: 2em;
+  margin-bottom: 25px;
+  padding: 5px;
+
+  ul {
+    .center-it();
+  }
 
   li {
     display: inline;
 
     &:after {
-      content: '\000BB'
+      content: '\027EB';
     }
   }
 }
