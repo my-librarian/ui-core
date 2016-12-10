@@ -27,9 +27,6 @@ export default class BreadcrumbsSvc {
 
   clear() {
 
-    while (this.history.length) {
-
-      this.history.pop();
-    }
+    this.history.splice(0);
   }
 }
