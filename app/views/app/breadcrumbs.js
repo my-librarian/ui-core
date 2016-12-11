@@ -14,7 +14,7 @@ function canPush(toState, fromState) {
 
   const admin = /^admin/;
 
-  return !admin.test(toState.name) || !admin.test(fromState.name);
+  return !admin.test(fromState.name);
 }
 
 /*@ngInject*/
