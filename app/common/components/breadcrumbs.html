@@ -1,5 +1,5 @@
 <ul>
   <li class="breadcrumb" ng-repeat="state in history">
-    <a ui-sref="{{state.from.name}}(state.params)">{{getPrettyName(state.from.name)}}</a>
+    <a ui-sref="{{state.from.name}}(state.params)">{{state.params.context || getPrettyName(state.from.name)}}</a>
   </li>
 </ul>
