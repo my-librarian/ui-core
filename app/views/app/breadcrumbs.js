@@ -1,10 +1,20 @@
-function shouldClearHistory(toState) {
+function shouldClearHistory(toState, fromState) {
 
-  return [
-    /^authors.list$/,
-    /^books.list$/,
-    /^subjects.list$/
-  ].some(name => name.test(toState.name));
+  return !fromState.name ||
+    [
+      /^admin$/,
+      /^authors.list$/,
+      /^books.list$/,
+      /^home$/,
+      /^subjects.list$/
+    ].some(name => name.test(toState.name));
+}
+
+function canPush(toState, fromState) {
+
+  const admin = /^admin/;
+
+  return !admin.test(toState.name) || !admin.test(fromState.name);
 }
 
 /*@ngInject*/
@@ -12,10 +22,10 @@ export default function buildBreadcrumbs($rootScope, BreadcrumbsSvc) {
 
   $rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) => {
 
-    if (!fromState.name || shouldClearHistory(toState)) {
+    if (shouldClearHistory(toState, fromState)) {
 
       BreadcrumbsSvc.clear();
-    } else {
+    } else if (canPush(toState, fromState)) {
 
       BreadcrumbsSvc.push(
         {
