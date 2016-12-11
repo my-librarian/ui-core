@@ -10,11 +10,21 @@
 @import "mixins";
 @import "variables";
 
+.uib-datepicker-popup.dropdown-menu {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
 .uib-datepicker {
-  padding: 10px;
 
   thead tr:first-child th {
     padding-bottom: 10px;
+  }
+
+  table {
+    &:extend(.card-3);
   }
 
   tbody {
@@ -51,6 +61,6 @@
   }
 }
 
-.modal .modal-dialog .modal-content{
+.modal .modal-dialog .modal-content {
   &:extend(.card-1);
 }
