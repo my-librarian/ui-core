@@ -1,5 +1,3 @@
-import angular from 'angular';
-
 export default class BreadcrumbsSvc {
 
   constructor() {
@@ -11,7 +9,10 @@ export default class BreadcrumbsSvc {
 
   inHistory(toState) {
 
-    return this.history.findIndex(state => angular.equals(state, toState));
+    return this.history.findIndex(state =>
+      state.from.name === toState.from.name &&
+      state.params.id === toState.params.id
+    );
   }
 
   push(state, toState) {
