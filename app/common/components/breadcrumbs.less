@@ -6,8 +6,8 @@ breadcrumbs:extend(.card-2) {
   color: darken(@secondary, 10%);
   display: block;
   font-size: .8em;
-  height: 2em;
   margin-bottom: 25px;
+  min-height: 2.5em;
   padding: 5px;
 
   ul {
@@ -15,10 +15,19 @@ breadcrumbs:extend(.card-2) {
   }
 
   li {
-    display: inline;
+    display: inline-block;
+    vertical-align: bottom;
 
-    &:after {
-      content: '\027EB';
+    &:not(:last-child) {
+      max-width: 75px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &:not(:first-child):before {
+      content: '/';
+      margin-left: 5px;
     }
   }
 }
