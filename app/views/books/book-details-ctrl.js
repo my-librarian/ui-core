@@ -64,6 +64,7 @@ export default class BookDetailsCtrl {
         details.description = details.description.replace(/\{br\}/g, '\n');
 
         this.details = details;
+        this.$state.params.context = details.title;
       });
   }
 

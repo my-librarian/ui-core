@@ -18,7 +18,11 @@ export default class AuthorDetailsCtrl {
   getAuthor() {
 
     this.AuthorsSvc.getAuthor(this.$state.params.id)
-      .then(details => this.details = details);
+      .then(details => {
+
+        this.details = details;
+        this.$state.params.context = details.name;
+      });
   }
 
   deleteAuthor() {

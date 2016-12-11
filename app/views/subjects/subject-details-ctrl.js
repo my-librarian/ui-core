@@ -19,7 +19,11 @@ export default class SubjectDetailsCtrl {
   getSubject() {
     
     this.SubjectsSvc.getSubject(this.$state.params.id)
-      .then(details => this.details = details);
+      .then(details => {
+
+        this.details = details;
+        this.$state.params.context = details.name;
+      });
   }
   
   deleteSubject() {
