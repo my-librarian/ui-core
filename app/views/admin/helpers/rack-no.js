@@ -36,7 +36,7 @@ function link($scope, $elem, $attr, ngModelCtrl) {
 
   ngModelCtrl.$parsers.push(viewValue => viewValue && format(viewValue));
   ngModelCtrl.$formatters.push(modelValue => modelValue && unFormat(modelValue));
-  ngModelCtrl.$validators.rackNo = (modelView, viewValue) => /^(r|r-)?\d{1,2}-?[a-z]-?\d{1,2}$/i.test(viewValue);
+  ngModelCtrl.$validators.rackNo = (modelView, viewValue) => /^(r|r-)?\d{1,2}-?[a-z]$/i.test(viewValue);
 
 }
 
