@@ -47,9 +47,10 @@
   ></attribute>
 
   <attribute
+    class="rupee"
     label="Price"
     ng-if="!vm.isElectronicCopy"
-    value="{{vm.details.cost | currency: '&#8377;'}}"
+    value="{{vm.details.cost | currency: ''}}"
   ></attribute>
 
   <attribute
