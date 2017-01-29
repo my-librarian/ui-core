@@ -30,7 +30,8 @@ export default class BooksSvc {
     return {
       oc: 'Original',
       ec: 'Electronic',
-      pc: 'Photocopy'
+      pc: 'Photocopy',
+      rc: 'Replaced'
     }[copy.toLowerCase()];
   }
 
