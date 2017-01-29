@@ -34,7 +34,7 @@
          infinite-scroll="vm.getMoreBooks()"
          infinite-scroll-disabled="vm.allLoaded || vm.loading"
          infinite-scroll-distance="1">
-      <book ng-repeat="book in vm.books" book="book" show-details="true"></book>
+      <book ng-repeat="book in vm.books" book="book" show-details="true" ng-class="{borrowed: book.borrowed}"></book>
     </div>
 
     <aside ng-if="!vm.booksCount">

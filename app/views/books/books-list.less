@@ -35,6 +35,24 @@ books-list {
           display: block;
           border-bottom: 1px solid @grid-divider;
 
+          &.borrowed {
+            position: relative;
+            overflow: hidden;
+
+            &:after {
+              @size: 16px;
+              content: ' ';
+              position: absolute;
+              top: @size/-2;
+              right: @size/-2;
+              background-color: @error-color;
+              height: @size;
+              width: @size;
+              box-shadow: inset 0 0 3px rgba(32, 0, 0, .75);
+              transform: rotate(45deg);
+            }
+          }
+
           a {
             display: flex;
             align-items: flex-end;
