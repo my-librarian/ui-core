@@ -10,8 +10,7 @@ module.exports = {
       'angular',
       'angular-translate',
       'angular-ui-bootstrap',
-      'angular-ui-router',
-      'ng-infinite-scroll'
+      'angular-ui-router'
     ]
   },
   output: {
