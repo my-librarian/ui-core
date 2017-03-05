@@ -62,13 +62,12 @@ export default class BooksListCtrl {
 
   hasValidSearchString() {
 
-    const minSearchLength = 2;
     const {searchString} = this.filters;
 
     return [
       searchString === '',
       /^r\d/i.test(searchString),
-      searchString.trim().length > minSearchLength
+      searchString.trim().length > 0
     ].some(condition => condition);
   }
 
