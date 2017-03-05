@@ -2,16 +2,18 @@
   <i class="icon book"></i>
   <translate>BOOKS</translate>
   <i class="icon add" ui-sref="admin.createBook" title="Add New Book" ng-if="vm.canAdd()"></i>
+  <i class="icon filter" ng-click="vm.toggleFilters()"></i>
 </h2>
 
 <main>
 
-  <aside class="books-filters">
+  <aside class="books-filters" ng-class="vm.showFilters ? 'show' : 'hide'">
     <books-filters
       filters="vm.filters"
       on-change="vm.onFiltersChange()"
       on-clear-filters="vm.clearFilters()"></books-filters>
 
+    <div class="backdrop" ng-click="vm.toggleFilters()"></div>
     <button-go-to-top></button-go-to-top>
   </aside>
 

@@ -87,4 +87,9 @@ export default class BooksListCtrl {
       this.onFiltersChange();
     }
   }
+
+  toggleFilters() {
+
+    this.showFilters = !this.showFilters;
+  }
 }
