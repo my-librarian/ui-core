@@ -2,6 +2,12 @@
 
 books-list {
 
+  h2 .filter.icon {
+    @media screen and (min-width: 769px) {
+      display: none;
+    }
+  }
+
   main {
     display: flex;
 
@@ -17,6 +23,45 @@ books-list {
 
         &:not(:disabled):hover {
           position: fixed;
+        }
+      }
+
+      .backdrop {
+        display: none;
+      }
+
+      @media screen and (max-width: 768px) {
+
+        &.hide {
+          display: none;
+
+          .backdrop {
+            display: none;
+          }
+        }
+
+        &.show {
+          .card-4();
+          background-color: white;
+          bottom: 0;
+          right: 0;
+          margin-right: 0;
+          padding: 10px;
+          position: fixed;
+          top: 0;
+          width: @filters-width;
+          z-index: 1;
+
+          .backdrop {
+            background-color: fade(black, 25%);
+            bottom: 0;
+            content: ' ';
+            display: block;
+            left: 0;
+            position: fixed;
+            right: @filters-width;
+            top: 0;
+          }
         }
       }
     }

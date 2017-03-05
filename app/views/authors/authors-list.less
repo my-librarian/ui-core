@@ -11,13 +11,27 @@ authors-list {
       color: @tertiary;
     }
 
-    .authors {
-      display: flex;
-      flex-flow: row wrap;
+    .authors li {
+      margin-bottom: 5px;
+    }
 
-      li {
-        flex-basis: 100%/3;
-        margin-bottom: 5px;
+    @media screen {
+
+      @media (min-width: 768px) {
+        .authors {
+          display: flex;
+          flex-flow: row wrap;
+
+          li {
+            flex-basis: 100%/2;
+          }
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .authors li {
+          flex-basis: 100%/3;
+        }
       }
     }
   }
