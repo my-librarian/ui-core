@@ -30,16 +30,17 @@
       {{vm.booksCount}} Found.
     </aside>
 
-    <div class="list"
-         infinite-scroll="vm.getMoreBooks()"
-         infinite-scroll-disabled="vm.allLoaded || vm.loading"
-         infinite-scroll-distance="1">
+    <div class="list">
       <book ng-repeat="book in vm.books" book="book" show-details="true" ng-class="{borrowed: book.borrowed}"></book>
     </div>
 
     <aside ng-if="!vm.booksCount">
       There are no books matching the filters
     </aside>
+
+    <button class="show-more" ng-click="vm.getMoreBooks()" ng-if="!vm.allLoaded && vm.booksCount">
+      Show more
+    </button>
 
     <aside ng-if="vm.allLoaded" class="all-loaded"></aside>
   </section>
