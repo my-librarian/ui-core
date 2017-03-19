@@ -7,6 +7,7 @@ import TitleSvc from './title-svc';
 import alerts from './alerts/alerts';
 import attribute from './attribute';
 import authorInput from './typeahead/author-input';
+import autofocus from './autofocus';
 import breadcrumbs from './breadcrumbs';
 import buttonGoToTop from './button-go-to-top';
 import checkbox from './checkbox';
@@ -25,6 +26,7 @@ export default angular.module('common.components', [])
   .directive(...alerts)
   .directive(...attribute)
   .directive(...authorInput)
+  .directive(...autofocus)
   .directive(...breadcrumbs)
   .directive(...buttonGoToTop)
   .directive(...checkbox)
