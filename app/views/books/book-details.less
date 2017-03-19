@@ -9,7 +9,7 @@ book-details {
 
     attribute {
       display: block;
-      flex-basis: 100%/3;
+      flex-basis: 100%;
       margin-bottom: 10px;
 
       .label {
@@ -24,6 +24,14 @@ book-details {
         &:hover {
           text-decoration: underline;
         }
+      }
+
+      @media (min-width: 768px) {
+        flex-basis: 100%/2;
+      }
+
+      @media (min-width: 1024px) {
+        flex-basis: 100%/3;
       }
     }
   }
