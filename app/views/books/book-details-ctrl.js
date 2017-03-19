@@ -61,7 +61,7 @@ export default class BookDetailsCtrl {
         details.copy = this.BooksSvc.getCopy(details.copy);
         details.source = this.BooksSvc.getSource(details.source);
 
-        details.description = details.description.replace(/\{br\}/g, '\n');
+        details.description = details.description.replace(/\s*\{br\}\s*/g, '\n');
 
         this.details = details;
         this.$state.params.context = details.title;
