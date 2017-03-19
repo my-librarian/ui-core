@@ -40,7 +40,7 @@
       There are no books matching the filters
     </aside>
 
-    <button class="show-more" ng-click="vm.getMoreBooks()" ng-if="!vm.allLoaded && vm.booksCount">
+    <button class="show-more" ng-click="vm.getMoreBooks()" ng-if="!vm.loading && !vm.allLoaded && vm.booksCount">
       Show more
     </button>
 
