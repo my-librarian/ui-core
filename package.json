@@ -7,8 +7,7 @@
     "angular-translate": "2.15.1",
     "angular-ui-bootstrap": "2.5.0",
     "angular-ui-router": "0.4.2",
-    "bootstrap": "3.3.7",
-    "uglifyjs-webpack-plugin": "^0.4.2"
+    "bootstrap": "3.3.7"
   },
   "devDependencies": {
     "babel-core": "6.24.1",
@@ -30,9 +29,8 @@
     "webpack-dev-server": "2.4.2"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.prod.js && npm run minify",
+    "build": "webpack --config webpack.config.prod.js",
     "eslint": "eslint .",
-    "minify": "uglifyjs -c -o dist/vendor.js -- dist/vendor.js",
     "postversion": "git push && git push --tags",
     "start": "webpack-dev-server",
     "test": "npm run eslint"
