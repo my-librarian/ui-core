@@ -3,7 +3,7 @@ const app = {
   abstract: true,
   template: '<app></app>',
   resolve: {
-    user: (LoginSvc) => LoginSvc.startSession().catch(() => ({}))
+    user: /*@ngInject*/(LoginSvc) => LoginSvc.startSession().catch(() => ({}))
   }
 };
 
