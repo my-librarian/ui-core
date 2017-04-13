@@ -1,15 +1,18 @@
-/* eslint-disable no-var */
-var Webpack = require('webpack');
+const Webpack = require('webpack');
 
-var config = require('./webpack.config.prod');
+const config = require('./webpack.config.prod');
 
 config.devtool = 'source-map';
-config.entry.index.unshift('webpack-dev-server/client?http://localhost:8080/', 'webpack/hot/dev-server');
+config.entry.index.unshift('webpack-dev-server/client?http://localhost:8080/');
 config.devServer = {
   contentBase: './',
   hot: true,
   proxy: {
     '/api/*': 'http://127.0.0.1:8090'
+  },
+  stats: {
+    children: false,
+    chunks: false
   }
 };
 config.plugins.unshift(new Webpack.HotModuleReplacementPlugin());
