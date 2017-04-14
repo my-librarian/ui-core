@@ -14,6 +14,8 @@ import login from './views/login';
 import profileRoutes from './views/profile/routes';
 import subjectsRoutes from './views/subjects/routes';
 
+import {registerWorker} from './worker/register';
+
 import './styles/less/base.less';
 import './styles/less/widgets.less';
 import './styles/css/material/material-icons.css';
@@ -35,6 +37,8 @@ angular.module(appName, [
   profileRoutes,
   subjectsRoutes
 ]);
+
+registerWorker();
 
 angular.element(document)
   .ready(() => angular.bootstrap(document, [appName], {strictDi: true}));
