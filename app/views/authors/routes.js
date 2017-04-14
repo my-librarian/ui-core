@@ -1,9 +1,15 @@
+import angular from 'angular';
+
 const authors = {
   parent: 'app',
   name: 'authors',
   url: '/authors',
   abstract: true,
-  template: '<authors />'
+  template: '<authors />',
+  resolve: /*@ngInject*/($ocLazyLoad) => $ocLazyLoad.load([
+    '/authors.js',
+    '/authors.css'
+  ])
 };
 
 const authorsList = {
@@ -25,7 +31,7 @@ const authorEdit = {
 };
 
 /*@ngInject*/
-export default function routes($stateProvider, $urlRouterProvider) {
+function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state(authors)
@@ -35,3 +41,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.when('/authors', '/authors/all');
 }
+
+export default angular.module('authors.routes', [])
+  .config(routes)
+  .name;

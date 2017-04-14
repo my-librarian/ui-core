@@ -1,7 +1,7 @@
 const app = {
   name: 'app',
   abstract: true,
-  template: '<app></app>',
+  template: '<app/>',
   resolve: {
     user: /*@ngInject*/(LoginSvc) => LoginSvc.startSession().catch(() => ({}))
   }

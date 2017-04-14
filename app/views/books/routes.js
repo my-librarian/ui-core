@@ -1,9 +1,15 @@
+import angular from 'angular';
+
 const books = {
   parent: 'app',
   name: 'books',
   url: '/books',
   abstract: true,
-  template: '<books />'
+  template: '<books />',
+  resolve: /*@ngInject*/($ocLazyLoad) => $ocLazyLoad.load([
+    '/books.js',
+    '/books.css'
+  ])
 };
 
 const booksList = {
@@ -25,7 +31,7 @@ const bookEdit = {
 };
 
 /*@ngInject*/
-export default function routes($stateProvider, $urlRouterProvider) {
+function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state(books)
@@ -35,3 +41,8 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.when('/books', '/books/all');
 }
+
+export default angular.module('books.routes', [])
+  .config(routes)
+  .name;
+

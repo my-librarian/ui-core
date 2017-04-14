@@ -1,9 +1,15 @@
+import angular from 'angular';
+
 const subjects = {
   parent: 'app',
   name: 'subjects',
   url: '/subjects',
   abstract: true,
-  template: '<subjects />'
+  template: '<subjects />',
+  resolve: /*@ngInject*/($ocLazyLoad) => $ocLazyLoad.load([
+    '/subjects.js',
+    '/subjects.css'
+  ])
 };
 
 const subjectsList = {
@@ -25,7 +31,7 @@ const subjectEdit = {
 };
 
 /*@ngInject*/
-export default function routes($stateProvider, $urlRouterProvider) {
+function routes($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state(subjects)
@@ -35,3 +41,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.when('/subjects', '/subjects/all');
 }
+
+export default angular.module('subjects.routes', [])
+  .config(routes)
+  .name;
