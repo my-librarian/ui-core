@@ -3,7 +3,7 @@ const Webpack = require('webpack');
 const config = require('./webpack.config.prod');
 
 config.devtool = 'source-map';
-config.entry.index.unshift('webpack-dev-server/client?http://localhost:8080/');
+config.entry.hot = 'webpack-dev-server/client?http://localhost:8080/';
 config.devServer = {
   contentBase: './',
   hot: true,

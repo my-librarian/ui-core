@@ -2,10 +2,28 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Webpack = require('webpack');
 
+const pageChunks = [
+  'admin',
+  'authors',
+  'books',
+  'login',
+  'profile',
+  'subjects'
+];
+const pageChunkEntries = pageChunks.reduce((entry, chunk) => {
+
+  entry[chunk] = `./app/views/${chunk}/index.js`;
+
+  return entry;
+
+}, {});
+
+const entry = Object.assign({
+  index: './app/index.js'
+}, pageChunkEntries);
+
 module.exports = {
-  entry: {
-    index: ['./app/index.js']
-  },
+  entry,
   output: {
     path: `${__dirname}/dist`,
     filename: '[name].js'
@@ -45,7 +63,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: 'body',
       template: './app/index.html',
-      favicon: './app/styles/images/favicon.ico'
+      favicon: './app/styles/images/favicon.ico',
+      excludeChunks: pageChunks
     }),
     new ExtractTextPlugin('[name].css'),
     new Webpack.optimize.CommonsChunkPlugin({
