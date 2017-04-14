@@ -76,6 +76,10 @@ module.exports = {
         resource.match(/\.js$/)
       )
     }),
-    new Webpack.optimize.UglifyJsPlugin()
+    new Webpack.optimize.UglifyJsPlugin({
+      mangle: {
+        except: ['$ocLazyLoad']
+      }
+    })
   ]
 };
