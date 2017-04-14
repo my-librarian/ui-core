@@ -6,7 +6,6 @@ const pageChunks = [
   'admin',
   'authors',
   'books',
-  'login',
   'profile',
   'subjects'
 ];
@@ -54,7 +53,7 @@ module.exports = {
       {
         test: /\.(woff|woff2|ttf|eot|svg|jpeg|png|gif)/,
         loaders: [
-          'url-loader?limit=10000'
+          'url-loader?limit=10000&name=[name].[ext]'
         ]
       }
     ]
