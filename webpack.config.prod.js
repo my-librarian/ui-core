@@ -53,7 +53,7 @@ module.exports = {
       {
         test: /\.(woff|woff2|ttf|eot|svg|jpeg|png|gif)/,
         loaders: [
-          'url-loader?limit=10000&name=[name].[ext]'
+          'url-loader?limit=1&name=[name].[ext]'
         ]
       }
     ]
