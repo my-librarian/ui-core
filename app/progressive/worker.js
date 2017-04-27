@@ -1,4 +1,4 @@
-const LIBRARY_CACHE = 'my.librarian.1.1';
+const LIBRARY_CACHE = 'my.librarian.2.0';
 
 const files = [
   './',
@@ -68,10 +68,8 @@ const fetchAndCache = request => fetch(request)
 const cacheFirst = request => caches.match(request)
   .then(response => response || fetchAndCache(request));
 
-// Run network first on dynamic content to cache
-//
-// const networkFirst = request => fetchAndCache(request)
-//   .catch(() => caches.match(request));
+const networkFirst = request => fetchAndCache(request)
+  .catch(() => caches.match(request));
 
 self.addEventListener('install', event => {
 
@@ -99,14 +97,18 @@ self.addEventListener('activate', event => {
 
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', event => { // eslint-disable-line complexity
 
   const {request} = event;
   const url = new URL(request.url);
   const path = url.pathname;
   const file = path.substring(path.lastIndexOf('/') + 1);
 
-  if (/\/api\//.test(path) || file === 'worker.js') {
+  if (/\/api\/(books|authors|subjects)/.test(path)) {
+
+    event.respondWith(networkFirst(request));
+
+  } else if (/\/api\//.test(path) || file === 'worker.js') {
 
     event.respondWith(fetch(request));
 
