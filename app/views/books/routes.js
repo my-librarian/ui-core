@@ -14,14 +14,20 @@ const books = {
 
 const booksList = {
   name: 'books.list',
-  url: '/list?a&b&l&p&q&r&s',
+  url: '/list?a&b&l&q&r&s',
   template: '<books-list />'
 };
 
 const bookDetails = {
   name: 'books.details',
   url: '/:id/details',
-  template: '<book-details />'
+  template: '<book-details />',
+  resolve: /*@ngInject*/($ocLazyLoad) => $ocLazyLoad.load([
+    '/authors.js',
+    '/authors.css',
+    '/subjects.js',
+    '/subjects.css'
+  ])
 };
 
 const bookEdit = {

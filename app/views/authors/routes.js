@@ -21,7 +21,13 @@ const authorsList = {
 const authorDetails = {
   name: 'authors.details',
   url: '/:id/details',
-  template: '<author-details />'
+  template: '<author-details />',
+  resolve: /*@ngInject*/($ocLazyLoad) => $ocLazyLoad.load([
+    '/books.js',
+    '/books.css',
+    '/subjects.js',
+    '/subjects.css'
+  ])
 };
 
 const authorEdit = {

@@ -21,7 +21,13 @@ const subjectsList = {
 const subjectDetails = {
   name: 'subjects.details',
   url: '/:id/details',
-  template: '<subject-details />'
+  template: '<subject-details />',
+  resolve: /*@ngInject*/($ocLazyLoad) => $ocLazyLoad.load([
+    '/books.js',
+    '/books.css',
+    '/authors.js',
+    '/authors.css'
+  ])
 };
 
 const subjectEdit = {
