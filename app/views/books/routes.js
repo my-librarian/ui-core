@@ -14,7 +14,7 @@ const books = {
 
 const booksList = {
   name: 'books.list',
-  url: '/list?a&b&l&q&r&s',
+  url: '/list?a&b&l&p&q&r&s',
   template: '<books-list />'
 };
 
