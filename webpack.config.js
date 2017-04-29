@@ -16,5 +16,6 @@ config.devServer = {
   }
 };
 config.plugins.unshift(new Webpack.HotModuleReplacementPlugin());
+config.plugins.pop();
 
 module.exports = config;
