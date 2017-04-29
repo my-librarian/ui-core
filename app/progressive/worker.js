@@ -1,4 +1,4 @@
-const LIBRARY_CACHE = 'my.librarian.2.0';
+const LIBRARY_CACHE = 'my.librarian.2.1';
 
 const files = [
   './',
