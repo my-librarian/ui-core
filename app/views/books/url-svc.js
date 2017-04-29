@@ -51,6 +51,7 @@ export default class UrlSvc {
 
     filters.authors = UrlSvc.setSelectedCheckboxList(filters.authors, params.a, 'authorid');
     filters.availability = UrlSvc.setAvailability(params.b);
+    filters.currentPage = params.p || 1;
     filters.languages = UrlSvc.setSelectedCheckboxList(filters.languages, params.l);
     filters.racks = UrlSvc.setSelectedCheckboxList(filters.racks, params.r);
     filters.searchString = params.q || '';
@@ -65,6 +66,7 @@ export default class UrlSvc {
       a: UrlSvc.getSelectedCheckboxList(filters.authors, 'authorid'),
       b: UrlSvc.getAvailability(filters.availability),
       l: UrlSvc.getSelectedCheckboxList(filters.languages),
+      p: filters.currentPage,
       q: filters.searchString,
       r: UrlSvc.getSelectedCheckboxList(filters.racks),
       s: UrlSvc.getSelectedCheckboxList(filters.subjects, 'subjectid')
