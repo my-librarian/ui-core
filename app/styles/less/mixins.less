@@ -85,13 +85,14 @@
   font-size: 100%;
   padding: 10px 15px;
 
-  &:not(:disabled):hover {
+  &:not(:disabled):not(.disabled):hover {
     .card-2();
     display: inline-block;
     background-color: @primary;
   }
 
-  &:disabled {
+  &:disabled,
+  &.disabled {
     background-color: @grid-divider;
   }
 
