@@ -45,10 +45,10 @@ export default class BooksSvc {
     }[source.toLowerCase()];
   }
 
-  applyFilters(filters) {
+  getBooks() {
 
     return this.$http
-      .put('/api/books', filters)
+      .get('/api/books/all')
       .then(response => response.data);
   }
 
@@ -115,13 +115,6 @@ export default class BooksSvc {
 
     return this.$http
       .get('/api/books/borrowed')
-      .then(response => response.data);
-  }
-
-  getFilters() {
-
-    return this.$http
-      .get('/api/books/filters')
       .then(response => response.data);
   }
 

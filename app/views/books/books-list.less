@@ -77,6 +77,7 @@ books-list {
 
       .list {
         &:extend(.card-1);
+        margin-bottom: 10px;
 
         book {
           display: block;
@@ -135,6 +136,29 @@ books-list {
 
       .all-loaded {
         height: 50px;
+      }
+    }
+
+    ul.pager {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .previous,
+      .next {
+        .button();
+        padding: 0;
+
+        a {
+          display: block;
+          padding: 7px 10px;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+          color: inherit;
+        }
       }
     }
   }

@@ -1,13 +1,24 @@
 /*@ngInject*/
 export default class BooksListCtrl {
 
-  constructor(BooksSvc, LoginSvc, UrlSvc) {
+  constructor(BooksSvc, FilterSvc, LoginSvc, UrlSvc, $q) {
 
     this.BooksSvc = BooksSvc;
+    this.FilterSvc = FilterSvc;
     this.LoginSvc = LoginSvc;
     this.UrlSvc = UrlSvc;
+    this.$q = $q;
+
+    this.ITEMS_PER_PAGE = 20;
 
     this.getBooks();
+  }
+
+  applyFilters(filters) {
+
+    this.filters = filters;
+
+    this.onFiltersChange();
   }
 
   canAdd() {
@@ -17,47 +28,57 @@ export default class BooksListCtrl {
 
   clearFilters() {
 
-    this.loading = true;
+    this.$q(resolve => resolve({
+      authors: this.filters.authors.map(this.FilterSvc.deselect),
+      availability: 'all',
+      currentPage: 1,
+      languages: this.filters.languages.map(this.FilterSvc.deselect),
+      racks: this.filters.racks.map(this.FilterSvc.deselect),
+      searchString: '',
+      subjects: this.filters.subjects.map(this.FilterSvc.deselect)
+    })).then(filters => this.applyFilters(filters));
+  }
 
-    this.BooksSvc.getFilters()
-      .then(filters => this.filters = filters)
-      .then(() => this.onFiltersChange());
+  filterBooks(book) {
+
+    return [
+      () => this.FilterSvc.staticFilter(book, this.filters.searchString),
+      () => this.FilterSvc.authorFilter(book, this.filters.authors, this.data.authorAssoc),
+      () => this.FilterSvc.subjectFilter(book, this.filters.subjects, this.data.subjectAssoc),
+      () => this.FilterSvc.languageFilter(book, this.filters.languages),
+      () => this.FilterSvc.availabilityFilter(book, this.filters.availability),
+      () => this.FilterSvc.rackFilter(book, this.filters.racks)
+    ].every(condition => condition());
   }
 
   getBooks() {
 
-    this.loading = true;
+    this.BooksSvc.getBooks()
+      .then(data => {
 
-    this.BooksSvc.getFilters()
-      .then(filters => this.filters = filters)
-      .then(() => this.UrlSvc.parseUrl(this.filters))
-      .then(() => this.onFiltersChange());
+        this.data = data;
+        this.data.authorAssoc = this.data.authorAssoc.reduce((assoc, author) => {
+          assoc[author.authorid] = author.books.split(',').map(id => parseInt(id));
+          return assoc;
+        }, {});
+        this.data.subjectAssoc = this.data.subjectAssoc.reduce((assoc, subject) => {
+          assoc[subject.subjectid] = subject.books.split(',').map(id => parseInt(id));
+          return assoc;
+        }, {});
 
-  }
-
-  applyFilters() {
-
-    const pageSize = 20;
-    this.loading = true;
-
-    this.BooksSvc.applyFilters(this.filters)
-      .then(({list, count}) => {
-
-        if (list.length < pageSize) {
-          this.allLoaded = true;
-        }
-
-        this.booksCount = count;
-        this.books = this.books.concat(list);
+        return {
+          authors: data.authors,
+          availability: 'all',
+          currentPage: 1,
+          languages: data.languages,
+          racks: data.racks,
+          searchString: '',
+          subjects: data.subjects
+        };
       })
-      .finally(() => this.loading = false);
-  }
+      .then(filters => this.UrlSvc.parseUrl(filters))
+      .then(filters => this.applyFilters(filters));
 
-  getMoreBooks() {
-
-    this.filters.page += 1;
-
-    this.applyFilters();
   }
 
   hasValidSearchString() {
@@ -73,12 +94,13 @@ export default class BooksListCtrl {
 
   onFiltersChange() {
 
-    this.filters.page = 1;
-    this.allLoaded = false;
-    this.books = [];
-
     this.UrlSvc.updateUrl(this.filters);
-    this.applyFilters();
+
+    this.$q(
+      resolve => resolve(this.data.books.filter(
+        book => this.filterBooks(book)
+      ))
+    ).then(books => this.filteredBooks = books);
   }
 
   onSearchStringChange() {

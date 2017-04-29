@@ -25,26 +25,28 @@
       ng-model="vm.filters.searchString"
       placeholder="Search by title, accession no. and rack no."
       ng-change="vm.onSearchStringChange($event)"
-      ng-model-options="{debounce: 1000}"
     >
 
-    <aside ng-if="vm.booksCount">
-      {{vm.booksCount}} Found.
+    <aside ng-if="vm.filteredBooks.length">
+      {{vm.filteredBooks.length}} Found.
     </aside>
 
-    <div class="list">
-      <book ng-repeat="book in vm.books" book="book" show-details="true" ng-class="{borrowed: book.borrowed}"></book>
-    </div>
-
-    <aside ng-if="!vm.booksCount">
+    <aside ng-if="!vm.filteredBooks.length">
       There are no books matching the filters
     </aside>
 
-    <button class="show-more" ng-click="vm.getMoreBooks()" ng-if="!vm.loading && !vm.allLoaded && vm.booksCount">
-      Show more
-    </button>
+    <ul
+      uib-pager
+      ng-if="vm.filteredBooks.length"
+      total-items="vm.filteredBooks.length"
+      ng-model="vm.filters.currentPage"
+      items-per-page="vm.ITEMS_PER_PAGE"
+    ></ul>
 
-    <aside ng-if="vm.allLoaded" class="all-loaded"></aside>
+    <div class="list">
+      <book ng-repeat="book in vm.filteredBooks.slice(((vm.filters.currentPage - 1) * vm.ITEMS_PER_PAGE), ((vm.filters.currentPage) * vm.ITEMS_PER_PAGE))" book="book" show-details="true" ng-class="{borrowed: book.borrowed}"></book>
+    </div>
+
   </section>
 
 </main>

@@ -1,5 +1,6 @@
 import angular from 'angular';
 
+import FilterSvc from './filter-svc';
 import availability from './availability';
 import checkboxList from './checkbox-list';
 import booksFilters from './filters';
@@ -12,4 +13,5 @@ export default angular.module('books.filters', [])
   .directive(...checkboxList)
   .directive(...rackGrid)
   .directive(...searchInput)
+  .service('FilterSvc', FilterSvc)
   .name;
